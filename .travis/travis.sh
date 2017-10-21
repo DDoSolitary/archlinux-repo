@@ -35,7 +35,7 @@ function arch-chroot {
 }
 cp .travis/mirrorlist "$ARCH_ROOT/etc/pacman.d/"
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
-arch-chroot root "pacman -Syu --noconfirm base-devel git"
+arch-chroot root "pacman -Syu --needed --noconfirm base-devel git"
 
 # Prepare for building packages
 arch-chroot root "useradd builder -m"
