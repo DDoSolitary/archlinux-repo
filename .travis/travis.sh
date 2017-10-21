@@ -33,7 +33,7 @@ mount --rbind . "$ARCH_PWD"
 function arch-chroot {
 	chroot "$ARCH_ROOT" su -l $1 /bin/bash -c "cd '$PWD'; $2"
 }
-cp .travis/mirrorlist "$ARCH_ROOT/etc/pacman.d/"
+echo 'Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch' > "$ARCH_ROOT/etc/pacman.d/mirrorlist"
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
 arch-chroot root "pacman -Syu --needed --noconfirm base-devel git"
 
