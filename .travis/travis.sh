@@ -16,27 +16,26 @@ popd
 ARCH_ROOT=/tmp/root.x86_64
 ARCH_PWD="$ARCH_ROOT$PWD"
 
+# Mount the web server's filesystem
+set +x
+echo "$DEPLOYKEY" | base64 -d > /root/.ssh/id_ed25519
+set -x
+chmod 600 /root/.ssh/id_ed25519
+cp .travis/known_hosts /root/.ssh/
+mkdir repo
+sshfs -o allow_other \
+	ddosolitary@web.sourceforge.net:/home/project-web/archlinux-repo/htdocs/packages \
+	repo
+
 # Initialize the chroot environment
 mkdir -p "$ARCH_PWD"
-mount --bind . "$ARCH_PWD"
+mount --rbind . "$ARCH_PWD"
 function arch-chroot {
 	chroot "$ARCH_ROOT" su -l $1 /bin/bash -c "cd '$PWD'; $2"
 }
 cp .travis/mirrorlist "$ARCH_ROOT/etc/pacman.d/"
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
 arch-chroot root "pacman -Syu --noconfirm base-devel git"
-
-# Mount the web server's filesystem
-MOUNT_POINT="$ARCH_PWD/repo"
-set +x
-echo "$DEPLOYKEY" | base64 -d > /root/.ssh/id_ed25519
-set -x
-chmod 600 /root/.ssh/id_ed25519
-cp .travis/known_hosts /root/.ssh/
-mkdir "$MOUNT_POINT"
-sshfs -o allow_other \
-	ddosolitary@web.sourceforge.net:/home/project-web/archlinux-repo/htdocs/packages \
-	"$MOUNT_POINT"
 
 # Prepare for building packages
 arch-chroot root "useradd builder -m"
@@ -57,8 +56,9 @@ for i in */PKGBUILD; do
 	arch-chroot builder "makepkg -sr --sign --needed --noconfirm" || true
 	popd
 done
-cd repo
-for i in *.pkg.*; do arch-chroot builder "repo-add -n -R archlinux-ddosolitary.db.tar.gz \"$i\""; done
+pushd repo
+for i in *.pkg.tar.xz; do arch-chroot builder "repo-add -n -R archlinux-ddosolitary.db.tar.gz '$i'"; done
+popd
 
 # Unmount the web server's filesystem
-fusermount -u "$MOUNT_POINT"
+fusermount -u repo
