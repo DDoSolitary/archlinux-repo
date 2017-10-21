@@ -54,7 +54,7 @@ for i in */PKGBUILD; do
 	popd
 done
 cd repo
-for i in *.pkg.*; do repo-add -n -R archlinux-ddosolitary.db.tar.gz "$i"; done
+for i in *.pkg.*; do arch-chroot builder "repo-add -n -R archlinux-ddosolitary.db.tar.gz \"$i\""; done
 
 # Unmount the web server's filesystem
 fusermount -u "$MOUNT_POINT"
