@@ -37,6 +37,11 @@ cp .travis/mirrorlist "$ARCH_ROOT/etc/pacman.d/"
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
 arch-chroot root "pacman -Syu --needed --noconfirm base-devel git"
 
+# Download PKGBUILDs from AUR
+for i in $(cat aur-build-list); do
+	curl -L "https://aur.archlinux.org/cgit/aur.git/snapshot/$i.tar.gz" | tar xz
+done
+
 # Prepare for building packages
 arch-chroot root "useradd builder -m"
 echo "builder ALL=(ALL) NOPASSWD: ALL" >> "$ARCH_ROOT/etc/sudoers"
