@@ -57,7 +57,9 @@ for i in */PKGBUILD; do
 	popd
 done
 pushd repo
-for i in *.pkg.tar.xz; do arch-chroot builder "repo-add -n -R archlinux-ddosolitary.db.tar.gz '$i'"; done
+for i in *.pkg.tar.xz; do
+	arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$i'"
+done
 popd
 
 # Unmount the web server's filesystem
