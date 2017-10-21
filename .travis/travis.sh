@@ -57,7 +57,7 @@ EOF
 # Build packages
 for i in */PKGBUILD; do
 	pushd "$(dirname "$i")"
-	chmod 777 .
+	chmod -R 777 .
 	arch-chroot builder "makepkg -sr --sign --needed --noconfirm" || true
 	popd
 done
