@@ -53,12 +53,33 @@ cat >> "$ARCH_ROOT/etc/makepkg.conf" <<- EOF
 	PACKAGER="DDoSolitary <DDoSolitary@gmail.com>"
 	GPG_KEY="6DC20782F6E9E2F3"
 EOF
+arch-chroot root "pacman-key --add .travis/pubkey && pacman-key --lsign-key 6DC20782F6E9E2F3"
 
 # Build packages
+mkdir provides
+for i in */PKGBUILD; do
+	PKG="$(dirname "$i")"
+	for j in "$PKG" $(source "$PKG/PKGBUILD" && echo ${provides[@]}); do
+		echo "$PKG" >> "provides/$j"
+	done
+done
+function build {
+	for i in $(source PKGBUILD && echo ${depends[@]} && echo ${makedepends[@]} && echo ${checkdepends[@]}); do
+		PKG="$(echo "$i" | sed "s/[<>=].*//")"
+		if [ -f "../provides/$PKG" ]; then
+			for j in $(cat "../provides/$PKG"); do
+				pushd "../$j"
+				PKG_INSTALL=i build
+				popd
+			done
+		fi
+	done
+	chmod -R 777 .
+	arch-chroot builder "makepkg -sr$PKG_INSTALL --sign --needed --noconfirm" || true
+}
 for i in */PKGBUILD; do
 	pushd "$(dirname "$i")"
-	chmod -R 777 .
-	arch-chroot builder "makepkg -sr --sign --needed --noconfirm" || true
+	build
 	popd
 done
 pushd repo
