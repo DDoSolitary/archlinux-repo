@@ -28,7 +28,9 @@ arch-chroot root "pacman -Syu --noconfirm base-devel git"
 
 # Mount the web server's filesystem
 MOUNT_POINT="$ARCH_PWD/repo"
+set +x
 echo "$DEPLOYKEY" | base64 -d > /root/.ssh/id_ed25519
+set -x
 chmod 600 /root/.ssh/id_ed25519
 cp .travis/known_hosts /root/.ssh/
 mkdir "$MOUNT_POINT"
@@ -39,7 +41,9 @@ sshfs -o allow_other \
 # Prepare for building packages
 arch-chroot root "useradd builder -m"
 echo "builder ALL=(ALL) NOPASSWD: ALL" >> "$ARCH_ROOT/etc/sudoers"
+set +x
 echo "$GPGKEY" | base64 -d | arch-chroot builder "gpg --import"
+set -x
 cat >> "$ARCH_ROOT/etc/makepkg.conf" <<- EOF
 	PKGDEST="$PWD/repo"
 	PACKAGER="DDoSolitary <DDoSolitary@gmail.com>"
