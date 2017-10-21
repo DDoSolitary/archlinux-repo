@@ -21,6 +21,7 @@ mount --bind . "$ARCH_PWD"
 function arch-chroot {
 	chroot "$ARCH_ROOT" su -l $1 /bin/bash -c "cd '$PWD'; $2"
 }
+cp .travis/mirrorlist "$ARCH_ROOT/etc/pacman.d/"
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
 arch-chroot root "pacman -Syu --noconfirm base-devel git"
 
