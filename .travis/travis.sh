@@ -50,7 +50,7 @@ EOF
 for i in */PKGBUILD; do
 	pushd "$(dirname "$i")"
 	chmod 777 .
-	arch-chroot builder "makepkg -sr --sign" || true
+	arch-chroot builder "makepkg -sr --sign --needed --noconfirm" || true
 	popd
 done
 cd repo
