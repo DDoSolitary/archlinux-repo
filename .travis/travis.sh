@@ -5,6 +5,7 @@ set -ex
 pushd /tmp
 wget -nv https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-2017.10.01-x86_64.tar.gz
 tar xzf archlinux-bootstrap-2017.10.01-x86_64.tar.gz
+mount --bind root.x86_64 root.x86_64
 cd root.x86_64
 cp /etc/resolv.conf etc/
 mount -t proc /proc proc
