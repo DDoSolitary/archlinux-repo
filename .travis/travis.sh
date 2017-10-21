@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 
 # Install an Arch Linux chroot environment
 pushd /tmp
