@@ -79,7 +79,7 @@ function build {
 		fi
 	done
 	chmod -R 777 .
-	arch-chroot builder "makepkg -sr$PKG_INSTALL --sign --needed --noconfirm" || true
+	arch-chroot builder "makepkg -sr$PKG_INSTALL --skippgpcheck --sign --needed --noconfirm" || true
 }
 for i in */PKGBUILD; do
 	pushd "$(dirname "$i")"
