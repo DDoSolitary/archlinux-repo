@@ -34,17 +34,12 @@ mount --rbind . "$ARCH_PWD"
 function arch-chroot {
 	chroot "$ARCH_ROOT" su -l $1 /bin/bash -c "cd '$PWD'; $2"
 }
-echo 'Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch' > "$ARCH_ROOT/etc/pacman.d/mirrorlist"
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
+echo 'Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch' > "$ARCH_ROOT/etc/pacman.d/mirrorlist"
 arch-chroot root "pacman -Syu --needed --noconfirm base base-devel"
 echo "LANG=en_US.UTF-8" > "$ARCH_ROOT/etc/locale.conf"
 echo "en_US.UTF-8 UTF-8" > "$ARCH_ROOT/etc/locale.gen"
 arch-chroot root locale-gen
-
-# Download PKGBUILDs from AUR
-for i in $(cat aur-build-list); do
-	curl -L "https://aur.archlinux.org/cgit/aur.git/snapshot/$i.tar.gz" | tar xz
-done
 
 # Prepare for building packages
 arch-chroot root "useradd builder -m"
@@ -52,45 +47,49 @@ echo "builder ALL=(ALL) NOPASSWD: ALL" >> "$ARCH_ROOT/etc/sudoers"
 set +x
 echo "$GPGKEY" | base64 -d | arch-chroot builder "gpg --import"
 set -x
+GPGKEY_ID=6DC20782F6E9E2F3
 cat >> "$ARCH_ROOT/etc/makepkg.conf" <<- EOF
 	PKGDEST="$PWD/repo"
 	PACKAGER="DDoSolitary <DDoSolitary@gmail.com>"
-	GPG_KEY="6DC20782F6E9E2F3"
+	GPG_KEY="$GPGKEY_ID"
 EOF
-arch-chroot root "pacman-key --add .travis/pubkey && pacman-key --lsign-key 6DC20782F6E9E2F3"
+cat >> "$ARCH_ROOT/etc/pacman.conf" <<- EOF
+	[archlinux-ddosolitary]
+	Server = file://$PWD/repo
+	SigLevel = Required
+EOF
+arch-chroot root "pacman-key --keyserver '$(dig +short pool.sks-keyservers.net | head -1)' -r '$GPGKEY_ID'"
+arch-chroot root "pacman-key --lsign-key '$GPGKEY_ID'"
+arch-chroot root "pacman -Sy"
+
+# Download PKGBUILDs from AUR
+for i in $(cat aur-build-list); do
+	curl -L "https://aur.archlinux.org/cgit/aur.git/snapshot/$i.tar.gz" | tar xz
+done
+
+# Resolve dependencies
+TMP1="$(mktemp)"
+TMP2="$(mktemp)"
+find -path "*/PKGBUILD" | xargs -l dirname | xargs -l basename | sort > "$TMP1"
+tsort build-deps > "$TMP2"
+PKGLIST="$(cat "$TMP2") $(cat "$TMP2" | sort | comm -3 - "$TMP1")"
 
 # Build packages
-mkdir provides
-for i in */PKGBUILD; do
-	PKG="$(dirname "$i")"
-	for j in "$PKG" $(source "$PKG/PKGBUILD" && echo ${provides[@]}); do
-		echo "$PKG" >> "provides/$j"
-	done
-done
-function build {
-	for i in $(source PKGBUILD && echo ${depends[@]} && echo ${makedepends[@]} && echo ${checkdepends[@]}); do
-		PKG="$(echo "$i" | sed "s/[<>=].*//")"
-		if [ -f "../provides/$PKG" ]; then
-			for j in $(cat "../provides/$PKG"); do
-				pushd "../$j"
-				PKG_INSTALL=i build
-				popd
-			done
-		fi
-	done
+for i in $PKGLIST; do
+	pushd "$i"
 	chmod -R 777 .
-	arch-chroot builder "makepkg -sr$PKG_INSTALL --skippgpcheck --sign --needed --noconfirm" || true
-}
-for i in */PKGBUILD; do
-	pushd "$(dirname "$i")"
-	build
+	set +e
+	arch-chroot builder "makepkg -sr --skippgpcheck --sign --needed --noconfirm"
+	if [ "$?" == "0" ]; then
+		pushd ../repo
+		arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$(ls -t | head -1)'"
+		arch-chroot root "pacman -Sy"
+		popd
+	# else TODO: Error handling
+	fi
+	set -e
 	popd
 done
-pushd repo
-for i in *.pkg.tar.xz; do
-	arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$i'"
-done
-popd
 
 # Unmount the web server's filesystem
 fusermount -u repo
