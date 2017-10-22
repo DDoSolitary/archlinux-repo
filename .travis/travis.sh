@@ -81,7 +81,7 @@ for i in $PKGLIST; do
 	pushd "$i"
 	chmod -R 777 .
 	set +e
-	arch-chroot builder "makepkg -sr --skippgpcheck --sign --needed --noconfirm"
+	arch-chroot builder "CARCH=x86_64 makepkg -sr --skippgpcheck --sign --needed --noconfirm"
 	if [ "$?" == "0" ]; then
 		set -e
 		for j in *.pkg.tar.xz; do
