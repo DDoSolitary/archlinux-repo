@@ -84,10 +84,14 @@ for i in $PKGLIST; do
 	arch-chroot builder "makepkg -sr --skippgpcheck --sign --needed --noconfirm"
 	if [ "$?" == "0" ]; then
 		set -e
-		pushd ../repo
-		arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$(ls -t | head -1)'"
-		arch-chroot root "pacman -Sy"
-		popd
+		for j in *.pkg.tar.xz; do
+			if [ "$j" == "*.pkg.tar.xz" ]; then break; fi
+			pushd ../repo
+			arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$j'"
+			arch-chroot root "pacman -Sy"
+			popd
+			break
+		done
 	else
 		set -e
 		BUILD_ERR=1
