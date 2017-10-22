@@ -2,12 +2,15 @@ aic94xx-firmware
 antigen-git
 aria2-fast
 dee
+firefox-beta-bin
 firefox-developer
+firefox-nightly
 gyp-git
 hyper
 mkinitcpio-numlock
 nouveau-fw
 package-query
+thunderbird-beta
 thunderbird-enigmail
 ttf-hack-powerline-git
 vim-dein-git
