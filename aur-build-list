@@ -8,6 +8,7 @@ hyper
 mkinitcpio-numlock
 nouveau-fw
 package-query
+thunderbird-enigmail
 ttf-hack-powerline-git
 vim-dein-git
 virtualbox-ext-oracle
