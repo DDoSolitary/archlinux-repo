@@ -11,6 +11,7 @@ cp /etc/resolv.conf etc/
 mount -t proc /proc proc
 mount --rbind /sys sys
 mount --rbind /dev dev
+mount --rbind /run run
 popd
 
 ARCH_ROOT=/tmp/root.x86_64
