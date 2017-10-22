@@ -61,6 +61,7 @@ EOF
 arch-chroot root "pacman-key --keyserver '$(dig +short pool.sks-keyservers.net | head -1)' -r '$GPGKEY_ID'"
 arch-chroot root "pacman-key --lsign-key '$GPGKEY_ID'"
 arch-chroot root "pacman -Sy"
+patch "$ARCH_ROOT/usr/bin/makepkg" .travis/makepkg.patch
 
 # Download PKGBUILDs from AUR
 for i in $(cat aur-build-list); do
@@ -75,21 +76,26 @@ tsort build-deps > "$TMP2"
 PKGLIST="$(cat "$TMP2") $(cat "$TMP2" | sort | comm -3 - "$TMP1")"
 
 # Build packages
+BUILD_ERR=0
 for i in $PKGLIST; do
 	pushd "$i"
 	chmod -R 777 .
 	set +e
 	arch-chroot builder "makepkg -sr --skippgpcheck --sign --needed --noconfirm"
 	if [ "$?" == "0" ]; then
+		set -e
 		pushd ../repo
 		arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$(ls -t | head -1)'"
 		arch-chroot root "pacman -Sy"
 		popd
-	# else TODO: Error handling
+	else
+		set -e
+		BUILD_ERR=1
 	fi
-	set -e
 	popd
 done
 
 # Unmount the web server's filesystem
 fusermount -u repo
+
+exit "$BUILD_ERR"
