@@ -35,7 +35,7 @@ function arch-chroot {
 }
 echo 'Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch' > "$ARCH_ROOT/etc/pacman.d/mirrorlist"
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
-arch-chroot root "pacman -Syu --needed --noconfirm base-devel git"
+arch-chroot root "pacman -Syu --needed --noconfirm base base-devel"
 echo "LANG=en_US.UTF-8" > "$ARCH_ROOT/etc/locale.conf"
 echo "en_US.UTF-8 UTF-8" > "$ARCH_ROOT/etc/locale.gen"
 arch-chroot root locale-gen
