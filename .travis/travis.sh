@@ -47,7 +47,7 @@ echo "builder ALL=(ALL) NOPASSWD: ALL" >> "$ARCH_ROOT/etc/sudoers"
 set +x
 echo "$GPGKEY" | base64 -d | arch-chroot builder "gpg --import"
 set -x
-GPGKEY_ID=6DC20782F6E9E2F3
+GPGKEY_ID=688E1D093C3638F588890D4450268311C7AD3F62
 cat >> "$ARCH_ROOT/etc/makepkg.conf" <<- EOF
 	PKGDEST="$PWD/repo"
 	PACKAGER="DDoSolitary <DDoSolitary@gmail.com>"
