@@ -10,7 +10,7 @@ hyper
 mkinitcpio-numlock
 nouveau-fw
 package-query
-thunderbird-beta
+thunderbird-beta-bin
 thunderbird-enigmail
 thunderbird-nightly
 ttf-hack-powerline-git
