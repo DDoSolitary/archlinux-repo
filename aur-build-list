@@ -8,7 +8,6 @@ hyper
 mkinitcpio-numlock
 nouveau-fw
 package-query
-telegram-desktop-systemqt
 ttf-hack-powerline-git
 vim-dein-git
 virtualbox-ext-oracle
