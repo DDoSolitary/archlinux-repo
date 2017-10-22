@@ -12,6 +12,7 @@ nouveau-fw
 package-query
 thunderbird-beta
 thunderbird-enigmail
+thunderbird-nightly
 ttf-hack-powerline-git
 vim-dein-git
 virtualbox-ext-oracle
