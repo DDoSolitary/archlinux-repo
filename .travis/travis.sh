@@ -57,7 +57,7 @@ cat >> "$ARCH_ROOT/etc/pacman.conf" <<- EOF
 	Server = file://$PWD/repo
 	SigLevel = Required
 EOF
-arch-chroot root "pacman-key --keyserver pgp.mit.edu -r '$GPGKEY_ID'"
+arch-chroot root "pacman-key --keyserver ipv4.pool.sks-keyservers.net -r '$GPGKEY_ID'"
 arch-chroot root "pacman-key --lsign-key '$GPGKEY_ID'"
 arch-chroot root "pacman -Sy"
 patch "$ARCH_ROOT/usr/bin/makepkg" .travis/makepkg.patch
