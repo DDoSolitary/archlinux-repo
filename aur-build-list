@@ -24,6 +24,8 @@ ruby-pusher-client
 ruby-travis
 ruby-typhoeus-0.6
 ruby-websocket
+telegram-desktop-bin
+telegram-desktop-bin-dev
 telegram-desktop-systemqt
 thunderbird-beta-bin
 thunderbird-enigmail
