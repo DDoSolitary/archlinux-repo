@@ -6,7 +6,7 @@ ruby-faraday_middleware ruby-travis
 ruby-gh ruby-travis
 ruby-highline ruby-travis
 ruby-launchy ruby-travis
-ruby-push-client ruby-travis
+ruby-pusher-client ruby-travis
 ruby-typhoeus-0.6 ruby-travis
 ruby-backports ruby-gh
 ruby-net-http-persistent ruby-gh
