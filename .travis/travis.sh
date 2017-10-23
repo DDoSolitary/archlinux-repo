@@ -70,8 +70,14 @@ done
 # Resolve dependencies
 TMP1="$(mktemp)"
 TMP2="$(mktemp)"
+source build-deps.sh
+for i in ${!DEPS[@]}; do
+	for j in ${DEPS["$i"]}; do
+		echo "$j" "$i" >> "$TMP1"
+	done
+done
+cat "$TMP1" | tsort  > "$TMP2"
 find -path "*/PKGBUILD" | xargs -l dirname | xargs -l basename | sort > "$TMP1"
-tsort build-deps > "$TMP2"
 PKGLIST="$(cat "$TMP2") $(cat "$TMP2" | sort | comm -3 - "$TMP1")"
 
 # Build packages
