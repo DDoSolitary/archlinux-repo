@@ -2,6 +2,7 @@ aic94xx-firmware
 antigen-git
 aria2-fast
 dee
+enigmail-git
 firefox-beta-bin
 firefox-developer
 firefox-nightly
@@ -12,7 +13,6 @@ nouveau-fw
 package-query
 thunderbird-beta-bin
 thunderbird-enigmail
-thunderbird-enigmail-git
 thunderbird-nightly
 ttf-hack-powerline-git
 vim-dein-git

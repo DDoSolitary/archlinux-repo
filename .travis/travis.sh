@@ -76,6 +76,7 @@ tsort build-deps > "$TMP2"
 PKGLIST="$(cat "$TMP2") $(cat "$TMP2" | sort | comm -3 - "$TMP1")"
 
 # Build packages
+PKGEXT=$(source "$ARCH_ROOT/etc/makepkg.conf" && echo "$PKGEXT")
 BUILD_ERR=0
 for i in $PKGLIST; do
 	pushd "$i"
@@ -84,13 +85,12 @@ for i in $PKGLIST; do
 	arch-chroot builder "CARCH=x86_64 makepkg -sr --skippgpcheck --sign --needed --noconfirm"
 	if [ "$?" == "0" ]; then
 		set -e
-		for j in *.pkg.tar.xz; do
-			if [ "$j" == "*.pkg.tar.xz" ]; then break; fi
+		for j in *"$PKGEXT"; do
+			if [ "$j" == "*$PKGEXT" ]; then break; fi
 			pushd ../repo
 			arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$j'"
 			arch-chroot root "pacman -Sy"
 			popd
-			break
 		done
 	else
 		set -e
