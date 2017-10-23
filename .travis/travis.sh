@@ -3,8 +3,7 @@ set -ex
 
 # Install an Arch Linux chroot environment
 pushd /tmp
-wget -nv https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-2017.10.01-x86_64.tar.gz
-tar xzf archlinux-bootstrap-2017.10.01-x86_64.tar.gz
+curl -L https://mirrors.kernel.org/archlinux/iso/latest/archlinux-bootstrap-2017.10.01-x86_64.tar.gz | tar xz
 mount --bind root.x86_64 root.x86_64
 cd root.x86_64
 cp /etc/resolv.conf etc/
