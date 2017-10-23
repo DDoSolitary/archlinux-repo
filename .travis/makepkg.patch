@@ -16,10 +16,9 @@
 > 					warning "$(gettext "The package group has already been built. (use %s to overwrite)")" "-f"
 1662a1660
 > 				exit 0
-1665,1666c1663
+1665,1666c1663,1664
 < 				error "$(gettext "Part of the package group has already been built. (use %s to overwrite)")" "-f"
 < 				exit 1
 ---
 > 				warning "$(gettext "Part of the package group has already been built. (use %s to overwrite)")" "-f"
-1667a1665
-> 			exit 0
+> 				exit 0
