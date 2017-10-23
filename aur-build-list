@@ -24,6 +24,7 @@ ruby-pusher-client
 ruby-travis
 ruby-typhoeus-0.6
 ruby-websocket
+telegram-cli-git
 telegram-desktop-bin
 telegram-desktop-bin-dev
 telegram-desktop-systemqt
