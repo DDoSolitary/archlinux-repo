@@ -69,7 +69,7 @@ done
 
 # Download public keys
 for i in $(cat gpg-keyids); do
-	arch-chroot builder "gpg --keyserver ipv4.pool.sks-keyservers.net -r '$i'"
+	arch-chroot builder "gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys '$i'"
 done
 
 # Resolve dependencies
