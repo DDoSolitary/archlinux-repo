@@ -11,6 +11,7 @@ hyper
 mkinitcpio-numlock
 nouveau-fw
 package-query
+rslsync
 ruby-backports
 ruby-ethon
 ruby-faraday_middleware
