@@ -12,6 +12,7 @@ i2p
 i2p-dev
 i2pd
 java-service-wrapper
+lantern-bin
 mkinitcpio-numlock
 nouveau-fw
 package-query
