@@ -7,8 +7,11 @@ firefox-beta-bin
 firefox-developer
 firefox-nightly
 gyp-git
-i2pd
 hyper
+i2p
+i2p-dev
+i2pd
+java-service-wrapper
 mkinitcpio-numlock
 nouveau-fw
 package-query
