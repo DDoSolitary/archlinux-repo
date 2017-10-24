@@ -67,6 +67,11 @@ for i in $(cat aur-build-list); do
 	curl -L "https://aur.archlinux.org/cgit/aur.git/snapshot/$i.tar.gz" | tar xz
 done
 
+# Download public keys
+for i in $(cat gpg-keyids); do
+	arch-chroot builder "gpg --keyserver ipv4.pool.sks-keyservers.net -r '$i'"
+done
+
 # Resolve dependencies
 TMP1="$(mktemp)"
 TMP2="$(mktemp)"
@@ -87,7 +92,7 @@ for i in $PKGLIST; do
 	pushd "$i"
 	chmod -R 777 .
 	set +e
-	arch-chroot builder "CARCH=x86_64 makepkg -sr --skippgpcheck --sign --needed --noconfirm"
+	arch-chroot builder "CARCH=x86_64 makepkg -sr --sign --needed --noconfirm"
 	if [ "$?" == "0" ]; then
 		set -e
 		for j in *"$PKGEXT"; do
