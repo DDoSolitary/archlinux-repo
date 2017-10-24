@@ -31,6 +31,7 @@ ruby-travis
 ruby-typhoeus-0.6
 ruby-websocket
 shadowsocksr-libev-git
+sstp-client
 telegram-cli-git
 telegram-desktop-bin
 telegram-desktop-bin-dev
