@@ -13,6 +13,7 @@ i2p-dev
 i2pd
 java-service-wrapper
 lantern-bin
+libtins
 mkinitcpio-numlock
 nouveau-fw
 obfs4proxy
