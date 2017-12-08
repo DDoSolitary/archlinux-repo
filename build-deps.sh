@@ -1,5 +1,5 @@
-declare -xA DEPS
-DEPS=(
+declare -xA deps
+deps=(
 	[yaourt]="package-query"
 	[telegram-desktop-systemqt]="dee gyp-git"
 	[ruby-travis]="ruby-backports ruby-faraday_middleware ruby-gh ruby-highline ruby-launchy ruby-pusher-client ruby-typhoeus-0.6"
