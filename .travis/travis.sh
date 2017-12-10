@@ -86,12 +86,12 @@ for i in ${!deps[@]}; do
 done
 cat "$tmp1" | tsort  > "$tmp2"
 find -path "*/PKGBUILD" | xargs -l dirname | xargs -l basename | sort > "$tmp1"
-PKGLIST="$(cat "$tmp2") $(cat "$tmp2" | sort | comm -3 - "$tmp1")"
+pkglist="$(cat "$tmp2") $(cat "$tmp2" | sort | comm -3 - "$tmp1")"
 
 # Build packages
-pkgext=$(source "$arch_root/etc/makepkg.conf" && echo "$pkgext")
+pkgext=$(source "$arch_root/etc/makepkg.conf" && echo "$PKGEXT")
 build_err=0
-for i in $PKGLIST; do
+for i in $pkglist; do
 	pushd "$i"
 	chmod -R 777 .
 	set +e
