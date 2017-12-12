@@ -18,6 +18,7 @@ mkinitcpio-numlock
 nouveau-fw
 obfs4proxy
 package-query
+range-v3
 rslsync
 ruby-backports
 ruby-ethon
