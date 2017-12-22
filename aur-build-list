@@ -1,12 +1,10 @@
 aic94xx-firmware
 antigen-git
 aria2-fast
-dee
 enigmail-git
 firefox-beta-bin
 firefox-developer
 firefox-nightly
-gyp-git
 hyper
 i2p
 i2p-dev
@@ -18,7 +16,6 @@ mkinitcpio-numlock
 nouveau-fw
 obfs4proxy
 package-query
-range-v3
 rslsync
 ruby-backports
 ruby-ethon
@@ -36,9 +33,7 @@ ruby-websocket
 shadowsocksr-libev-git
 sstp-client
 telegram-cli-git
-telegram-desktop-bin
 telegram-desktop-bin-dev
-telegram-desktop-systemqt
 thunderbird-beta-bin
 thunderbird-enigmail
 thunderbird-nightly
