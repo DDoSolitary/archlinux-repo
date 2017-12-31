@@ -1,6 +1,7 @@
 aic94xx-firmware
 antigen-git
 aria2-fast
+binfmt-support
 enigmail-git
 firefox-beta-bin
 firefox-developer
@@ -16,6 +17,7 @@ mkinitcpio-numlock
 nouveau-fw
 obfs4proxy
 package-query
+qemu-user-static
 rslsync
 ruby-backports
 ruby-ethon
