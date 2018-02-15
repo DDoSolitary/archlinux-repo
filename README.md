@@ -33,4 +33,4 @@ pacman -Sy
 
 # Limitations
 
-- No CDN, downloading may be slow in some regions (e.g. China).
+- Downloading may be slow in some regions (e.g. China).
