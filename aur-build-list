@@ -22,7 +22,6 @@ qemu-user-static
 rslsync
 ruby-backports
 ruby-ethon
-ruby-faraday_middleware
 ruby-gh
 ruby-highline
 ruby-json
