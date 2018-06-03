@@ -46,6 +46,8 @@ arch-chroot root locale-gen
 # Prepare for building packages
 arch-chroot root "useradd builder -m"
 echo "builder ALL=(ALL) NOPASSWD: ALL" >> "$arch_root/etc/sudoers"
+builder_uid=$(arch-chroot builder "id -u")
+builder_gid=$(arch-chroot builder "id -g")
 set +x
 echo "$GPGKEY" | base64 -d | arch-chroot builder "gpg --import"
 set -x
@@ -63,7 +65,6 @@ EOF
 arch-chroot root "pacman-key --keyserver ipv4.pool.sks-keyservers.net -r '$GPGKEY_ID'"
 arch-chroot root "pacman-key --lsign-key '$GPGKEY_ID'"
 arch-chroot root "pacman -Sy"
-patch "$arch_root/usr/bin/makepkg" .travis/makepkg.patch
 
 # Download PKGBUILDs from AUR
 for i in $(cat aur-build-list); do
@@ -89,26 +90,28 @@ find -path "*/PKGBUILD" | xargs -l dirname | xargs -l basename | sort > "$tmp1"
 pkglist="$(cat "$tmp2") $(cat "$tmp2" | sort | comm -3 - "$tmp1")"
 
 # Build packages
-pkgext=$(source "$arch_root/etc/makepkg.conf" && echo "$PKGEXT")
 build_err=0
 for i in $pkglist; do
 	pushd "$i"
-	chmod -R 777 .
+	chown $builder_uid:$builder_gid .
 	set +e
 	arch-chroot builder "CARCH=x86_64 makepkg -sr --sign --needed --noconfirm"
-	if [ "$?" == "0" ]; then
-		set -e
-		for j in *"$pkgext"; do
-			if [ "$j" == "*$pkgext" ]; then break; fi
-			pushd ../repo
-			arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$j'"
-			arch-chroot root "pacman -Sy"
-			popd
-		done
-	else
-		set -e
+	makepkg_err=$?
+	set -e
+	case $makepkg_err in
+	0)
+		pkgfile="$(arch-chroot builder "makepkg --packagelist")"
+		pushd ../repo
+		arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz $pkgfile"
+		arch-chroot root "pacman -Sy"
+		popd
+		;;
+	13)
+		;;
+	*)
 		build_err=1
-	fi
+		;;
+	esac
 	popd
 done
 
