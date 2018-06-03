@@ -91,6 +91,7 @@ pkglist="$(cat "$tmp2") $(cat "$tmp2" | sort | comm -3 - "$tmp1")"
 
 # Build packages
 build_err=0
+tmp_res="$(mktemp)"
 for i in $pkglist; do
 	pushd "$i"
 	chown $builder_uid:$builder_gid .
@@ -98,6 +99,7 @@ for i in $pkglist; do
 	arch-chroot builder "CARCH=x86_64 makepkg -sr --sign --needed --noconfirm"
 	makepkg_err=$?
 	set -e
+	echo "$i $makepkg_err" >> "$tmp_res"
 	case $makepkg_err in
 	0)
 		pkgfile="$(arch-chroot builder "makepkg --packagelist")"
@@ -115,7 +117,7 @@ for i in $pkglist; do
 	popd
 done
 
-# Unmount the web server's filesystem
+# Exit
 fusermount -u repo
-
-exit "$build_err"
+cat "$tmp_res"
+exit $build_err
