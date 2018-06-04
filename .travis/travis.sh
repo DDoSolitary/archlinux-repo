@@ -102,11 +102,12 @@ for i in $pkglist; do
 	echo "$i $makepkg_err" >> "$tmp_res"
 	case $makepkg_err in
 	0)
-		pkgfile="$(arch-chroot builder "makepkg --packagelist")"
-		pushd ../repo
-		arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz $pkgfile"
+		for $j in $(arch-chroot builder "makepkg --packagelist"); do
+			pushd ../repo
+			arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$j'"
+			popd
+		done
 		arch-chroot root "pacman -Sy"
-		popd
 		;;
 	13)
 		;;
