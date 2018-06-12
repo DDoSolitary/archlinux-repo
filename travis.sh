@@ -23,7 +23,7 @@ set +x
 echo "$DEPLOYKEY" | base64 -d > /root/.ssh/id_ed25519
 set -x
 chmod 600 /root/.ssh/id_ed25519
-cp .travis/known_hosts /root/.ssh/
+cp known_hosts /root/.ssh/
 mkdir repo
 sshfs -o allow_other \
 	ddosolitary@web.sourceforge.net:/home/project-web/archlinux-repo/htdocs/packages \
