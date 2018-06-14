@@ -94,6 +94,10 @@ build_err=0
 tmp_res="$(mktemp)"
 for i in $pkglist; do
 	pushd "$i"
+	patch_path="../$i.patch"
+	if [ -f "$patch_path" ]; then
+		patch -Np1 -i "$patch_path"
+	fi
 	chown $builder_uid:$builder_gid .
 	set +e
 	arch-chroot builder "CARCH=x86_64 makepkg -sr --sign --needed --noconfirm"
