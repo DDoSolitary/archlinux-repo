@@ -7,4 +7,5 @@ deps=(
 	[ruby-typhoeus-0.6]="ruby-ethon"
 	[i2p]="java-service-wrapper"
 	[i2p-dev]="java-service-wrapper"
+	[java-service-wrapper]="apache-ant-10"
 )

@@ -72,6 +72,7 @@ for i in $(cat aur-build-list); do
 done
 
 # Download public keys
+curl -L https://www.apache.org/dist/ant/KEYS | arch-chroot builder "gpg --import"
 for i in $(cat gpg-keyids); do
 	arch-chroot builder "gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys '$i'"
 done

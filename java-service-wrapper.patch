@@ -1,0 +1,26 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index becb540..8363caa 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -11,7 +11,7 @@ pkgbase = java-service-wrapper
+ 	arch = armv6h
+ 	arch = armv7h
+ 	license = GPL2
+-	makedepends = apache-ant
++	makedepends = apache-ant-10
+ 	makedepends = java-environment>=7
+ 	conflicts = java-service-wrapper-bin
+ 	source = https://wrapper.tanukisoftware.com/download/3.5.35/wrapper_3.5.35_src.tar.gz
+diff --git a/PKGBUILD b/PKGBUILD
+index 711e6d1..707adad 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,7 +9,7 @@ url="https://wrapper.tanukisoftware.com/doc/english/introduction.html"
+ arch=('i686' 'x86_64' 'aarch64' 'armv6h' 'armv7h')
+ license=('GPL2')
+ conflicts=('java-service-wrapper-bin')
+-makedepends=('apache-ant' 'java-environment>=7')
++makedepends=('apache-ant-10' 'java-environment>=7')
+ source=("https://wrapper.tanukisoftware.com/download/${pkgver}/wrapper_${pkgver}_src.tar.gz"
+         'java10.patch')
+ sha256sums=('82f7d89414ce4ff0cdbb8357d779362bb5ddf068aede20a4a56627ed55e25e56'
