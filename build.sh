@@ -107,7 +107,7 @@ for i in $pkglist; do
 	echo "$i $makepkg_err" >> "$tmp_res"
 	case $makepkg_err in
 	0)
-		for $j in $(arch-chroot builder "makepkg --packagelist"); do
+		for j in $(arch-chroot builder "makepkg --packagelist"); do
 			pushd ../repo
 			arch-chroot builder "repo-add -n -R -s archlinux-ddosolitary.db.tar.gz '$j'"
 			popd

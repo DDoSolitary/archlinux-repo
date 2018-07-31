@@ -1,8 +1,8 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index df4e264..8f83cdf 100644
+index 1214b3a..bb94385 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -26,6 +26,7 @@ prepare() {
+@@ -28,6 +28,7 @@ prepare() {
      cd "${srcdir}/apache-ant-${pkgver}"
      unset  ANT_HOME
      export ANT_OPTS="-Duser.home=${srcdir}"
@@ -10,10 +10,10 @@ index df4e264..8f83cdf 100644
  
      ./bootstrap.sh
      bootstrap/bin/ant -Ddest=optional -f fetch.xml
-@@ -34,6 +35,7 @@ prepare() {
+@@ -36,6 +37,7 @@ prepare() {
  build() {
      cd "${srcdir}/apache-ant-${pkgver}"
-     export ANT_HOME="${srcdir}/apache-ant-1.10.3/bootstrap"
+     export ANT_HOME="${srcdir}/apache-ant-${pkgver}/bootstrap"
 +    export JAVA_HOME=/usr/lib/jvm/default
  
      bootstrap/bin/ant -lib lib/optional dist
