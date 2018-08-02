@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 83c8f2a..827fc37 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -31,7 +31,7 @@ prepare() {
+ 
+ build() {
+     cd "$srcdir/$pkgname"
+-    ./configure
++    ./configure CFLAGS="-w"
+     make
+     gzip -f debian/telegram-cli.8
+ }
