@@ -1,0 +1,14 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 4368871..57f4a46 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -36,7 +36,8 @@ build() {
+   cd "$_gitname"
+   ./configure --prefix=/opt/$_gitname \
+               --enable-system-shared-lib \
+-              --program-transform-name='s/ss-/ssr-/' # \
++              --program-transform-name='s/ss-/ssr-/'
++              CFLAGS="-Wno-error=format-overflow -O2" # \
+             # --with-crypto-library=LIB # LIB=openssl|mbedtls, default=openssl
+             # if you choose a crypto lib other than openssl, uncomment above line and the trailing slash
+   make
