@@ -1,6 +1,6 @@
 # archlinux-repo
 
-[![Build Status](https://travis-ci.org/DDoSolitary/archlinux-repo.svg)](https://travis-ci.org/DDoSolitary/archlinux-repo)
+[![Build Status](https://img.shields.io/appveyor/ci/ddosolitary/archlinux-repo/master.svg)](https://ci.appveyor.com/project/DDoSolitary/archlinux-repo)
 
 This is an unofficial repository for Arch Linux.
 
