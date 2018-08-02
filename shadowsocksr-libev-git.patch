@@ -1,5 +1,5 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index 4368871..842648c 100644
+index 4368871..96bed6d 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -36,7 +36,8 @@ build() {
@@ -8,7 +8,7 @@ index 4368871..842648c 100644
                --enable-system-shared-lib \
 -              --program-transform-name='s/ss-/ssr-/' # \
 +              --program-transform-name='s/ss-/ssr-/' \
-+              CFLAGS="-Wno-error=format-overflow -O2" # \
++              CFLAGS="-Wno-error=format-overflow -Wno-error=sizeof-pointer-memaccess -O2" # \
              # --with-crypto-library=LIB # LIB=openssl|mbedtls, default=openssl
              # if you choose a crypto lib other than openssl, uncomment above line and the trailing slash
    make
