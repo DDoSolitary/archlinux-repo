@@ -38,7 +38,7 @@ function arch-chroot {
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
 sed -i "s/pool\.sks-keyservers\.net/ipv4.\0/" "$arch_root/etc/pacman.d/gnupg/gpg.conf"
 echo 'Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch' > "$arch_root/etc/pacman.d/mirrorlist"
-arch-chroot root "pacman -Syu --needed --noconfirm base base-devel"
+arch-chroot root "pacman -Syu --needed --noconfirm base base-devel ruby-rdoc"
 echo "LANG=en_US.UTF-8" > "$arch_root/etc/locale.conf"
 echo "en_US.UTF-8 UTF-8" > "$arch_root/etc/locale.gen"
 arch-chroot root locale-gen
