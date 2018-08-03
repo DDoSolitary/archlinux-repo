@@ -23,6 +23,7 @@ package-query
 qemu-user-static
 rslsync
 ruby-backports
+ruby-connection_pool
 ruby-ethon
 ruby-gh
 ruby-highline
