@@ -9,5 +9,4 @@ install:
   - sh: sudo apt-get install sshfs rng-tools
   - sh: sudo service rng-tools start
 build_script:
-  - sh: curl -sflL https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh | bash -e 
   - sh: sudo -E ./build.sh

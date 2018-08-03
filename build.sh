@@ -90,6 +90,11 @@ cat "$tmp1" | tsort  > "$tmp2"
 find -path "*/PKGBUILD" | xargs -l dirname | xargs -l basename | sort > "$tmp1"
 pkglist="$(cat "$tmp2") $(cat "$tmp2" | sort | comm -3 - "$tmp1")"
 
+# Start SSH server
+if [ "$APPVEYOR_SSH_BLOCK" == "true" ]; then
+	curl -sflL https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh | bash -e
+fi
+
 # Build packages
 build_err=0
 tmp_res="$(mktemp)"
