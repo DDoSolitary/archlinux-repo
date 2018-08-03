@@ -36,7 +36,6 @@ function arch-chroot {
 	chroot "$arch_root" su -l $1 /bin/bash -c "cd '$PWD'; $2"
 }
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
-sed -i "s/pool\.sks-keyservers\.net/ipv4.\0/" "$arch_root/etc/pacman.d/gnupg/gpg.conf"
 echo 'Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch' > "$arch_root/etc/pacman.d/mirrorlist"
 arch-chroot root "pacman -Syu --needed --noconfirm base base-devel ruby-rdoc"
 echo "LANG=en_US.UTF-8" > "$arch_root/etc/locale.conf"
@@ -62,7 +61,7 @@ cat >> "$arch_root/etc/pacman.conf" <<- EOF
 	Server = file://$PWD/repo
 	SigLevel = Required
 EOF
-arch-chroot root "pacman-key --keyserver ipv4.pool.sks-keyservers.net -r '$GPGKEY_ID'"
+arch-chroot root "pacman-key --keyserver pgp.mit.edu -r '$GPGKEY_ID'"
 arch-chroot root "pacman-key --lsign-key '$GPGKEY_ID'"
 arch-chroot root "pacman -Sy"
 
@@ -74,7 +73,7 @@ done
 # Download public keys
 curl -L https://www.apache.org/dist/ant/KEYS | arch-chroot builder "gpg --import"
 for i in $(cat gpg-keyids); do
-	arch-chroot builder "gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys '$i'"
+	arch-chroot builder "gpg --keyserver pgp.mit.edu --recv-keys '$i'"
 done
 
 # Resolve dependencies
