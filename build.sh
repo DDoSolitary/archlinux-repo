@@ -35,6 +35,17 @@ mount --rbind . "$arch_pwd"
 function arch-chroot {
 	chroot "$arch_root" su -l $1 /bin/bash -c "cd '$PWD'; $2"
 }
+function gpg-recv {
+	set +e
+	for i in $(seq 10); do
+		arch-chroot "$1" "gpg $3 --keyserver pgp.mit.edu --recv-keys '$2'" \
+			|| arch-chroot "$1" "gpg $3 --keyserver pool.sks-keyservers.net --recv-keys '$2'" \
+			&& break
+		if [ "$i" == "10" ]; then exit 1; fi
+		sleep $i
+	done
+	set -e
+}
 arch-chroot root "pacman-key --init && pacman-key --populate archlinux"
 echo 'Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch' > "$arch_root/etc/pacman.d/mirrorlist"
 arch-chroot root "pacman -Syu --needed --noconfirm base base-devel"
@@ -61,7 +72,7 @@ cat >> "$arch_root/etc/pacman.conf" <<- EOF
 	Server = file://$PWD/repo
 	SigLevel = Required
 EOF
-arch-chroot root "pacman-key --keyserver pgp.mit.edu -r '$GPGKEY_ID'"
+gpg-recv root "$GPGKEY_ID" "--homedir /etc/pacman.d/gnupg"
 arch-chroot root "pacman-key --lsign-key '$GPGKEY_ID'"
 arch-chroot root "pacman -Sy"
 
@@ -73,7 +84,7 @@ done
 # Download public keys
 curl -L https://www.apache.org/dist/ant/KEYS | arch-chroot builder "gpg --import"
 for i in $(cat gpg-keyids); do
-	arch-chroot builder "gpg --keyserver pgp.mit.edu --recv-keys '$i'"
+	gpg-recv builder "$i"
 done
 
 # Resolve dependencies
