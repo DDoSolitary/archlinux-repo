@@ -114,7 +114,7 @@ for i in $pkglist; do
 	if [ -f "$patch_path" ]; then
 		patch -Np1 -i "$patch_path"
 	fi
-	chown $builder_uid:$builder_gid .
+	chown -R $builder_uid:$builder_gid .
 	set +e
 	arch-chroot builder "CARCH=x86_64 makepkg -sr --sign --needed --noconfirm"
 	makepkg_err=$?
