@@ -1,30 +1,37 @@
-diff --git a/.SRCINFO b/.SRCINFO
-index f5c64b2..cc7df2d 100644
---- a/.SRCINFO
-+++ b/.SRCINFO
-@@ -14,6 +14,10 @@ pkgbase = waifu2x-converter-cpp-cuda-git
- 	depends = opencv
- 	depends = cuda
- 	depends = gtkglext
-+	depends = gtk3
-+	depends = vtk
-+	depends = hdf5
-+	depends = glew
- 	provides = waifu2x-converter-cpp
- 	conflicts = waifu2x-converter-cpp
- 	source = git+https://github.com/DeadSix27/waifu2x-converter-cpp.git
 diff --git a/PKGBUILD b/PKGBUILD
-index d128662..379bbb7 100644
+index e6e49f1..1785c4b 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -13,6 +13,10 @@ license=('MIT')
+@@ -12,8 +12,6 @@ url='https://github.com/DeadSix27/waifu2x-converter-cpp'
+ license=('MIT')
  depends=('opencv'
           'cuda'
-          'gtkglext'
-+         'gtk3'
-+         'vtk'
-+         'hdf5'
-+         'glew'
+-         'gtk3'
+-         'hdf5'
           )
  makedepends=('cmake'
               'git'
+@@ -31,8 +29,10 @@ pkgver() {
+ }
+ 
+ prepare() {
+-  mkdir -p build
++}
+ 
++build() {
++  mkdir build
+   cd build
+   cmake ../waifu2x-converter-cpp \
+     -DCMAKE_BUILD_TYPE=None \
+@@ -42,10 +42,7 @@ prepare() {
+     -DCUDA_HOST_COMPILER=/opt/cuda/bin/gcc \
+     -DINSTALL_MODELS=ON \
+     -DOPENCV_PREFIX=/usr
+-}
+-
+-build() {
+-  make -C build
++  make
+ }
+ 
+ package() {
