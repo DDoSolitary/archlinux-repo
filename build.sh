@@ -112,7 +112,11 @@ for i in $pkglist; do
 	pushd "$i"
 	patch_path="../$i.patch"
 	if [ -f "$patch_path" ]; then
-		patch -Np1 -i "$patch_path"
+		if ! patch -Np1 -i "$patch_path"; then
+			echo "$i patch failed"
+			build_err=1
+			continue
+		fi
 	fi
 	chown -R $builder_uid:$builder_gid .
 	set +e
