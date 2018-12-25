@@ -113,8 +113,9 @@ for i in $pkglist; do
 	patch_path="../$i.patch"
 	if [ -f "$patch_path" ]; then
 		if ! patch -Np1 -i "$patch_path"; then
-			echo "$i patch failed"
+			echo "$i patch failed" >> "$tmp_res"
 			build_err=1
+			popd
 			continue
 		fi
 	fi
