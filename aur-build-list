@@ -4,7 +4,6 @@ antigen-git
 apache-ant-10
 aria2-fast
 binfmt-support
-enigmail-git
 firefox-beta-bin
 firefox-developer
 firefox-nightly
@@ -40,6 +39,7 @@ sstp-client
 telegram-cli-git
 telegram-desktop-bin-dev
 thunderbird-beta-bin
+thunderbird-extension-enigmail-git
 thunderbird-nightly
 tmate
 tor-browser-en
