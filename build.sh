@@ -19,6 +19,7 @@ arch_root=/tmp/root.x86_64
 arch_pwd="$arch_root$PWD"
 
 # Mount the web server's filesystem
+mkdir -p /root/.ssh
 set +x
 echo "$DEPLOYKEY" | base64 -d > /root/.ssh/id_ed25519
 set -x
