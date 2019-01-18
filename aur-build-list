@@ -6,6 +6,7 @@ binfmt-support
 firefox-beta-bin
 firefox-developer
 firefox-nightly
+glib2-static
 hyper
 i2p
 i2p-dev
@@ -18,6 +19,7 @@ mkinitcpio-numlock
 nouveau-fw
 obfs4proxy
 package-query
+pcre-static
 qemu-user-static
 rslsync
 ruby-backports

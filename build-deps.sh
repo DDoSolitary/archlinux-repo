@@ -8,4 +8,5 @@ deps=(
 	[ruby-typhoeus-0.6]="ruby-ethon"
 	[i2p]="java-service-wrapper"
 	[i2p-dev]="java-service-wrapper"
+	[qemu-user-static]="glib2-static pcre-static"
 )
