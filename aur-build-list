@@ -2,6 +2,7 @@ acme.sh-git
 aic94xx-firmware
 antigen-git
 aria2-fast
+binfmt-qemu-static
 binfmt-support
 firefox-beta-bin
 firefox-developer
