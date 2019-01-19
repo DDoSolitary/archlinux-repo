@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 8be0933..fc9b820 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -30,6 +30,7 @@ build() (
+   cd build-user-static
+ 
+   ../qemu-${pkgver}/configure \
++    --python=/usr/bin/python2 \
+     --prefix=/usr \
+     --sysconfdir=/etc \
+     --localstatedir=/var \
