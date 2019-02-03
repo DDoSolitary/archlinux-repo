@@ -19,7 +19,7 @@ index 78fda3a..4cd3d2f 100644
  url='https://github.com/shadowsocks/v2ray-plugin'
  license=('MIT')
 -makedepends=('go')
-+makedepends=('git go')
++makedepends=(git go)
  conflicts=("${pkgname}-git" "${pkgname}-bin")
  source=($pkgname::"git+https://github.com/shadowsocks/$pkgname.git#tag=v$pkgver"
          "https://raw.githubusercontent.com/shadowsocks/$pkgname/master/LICENSE")
