@@ -1,22 +1,14 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index 57b668a..6588ba7 100644
+index 6b54935..e89d2ed 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -17,14 +17,9 @@ sha256sums=('a2a27e65904688da3e84f5745d3a71371a6ecba43675d8d824c3774e879281c9'
+@@ -34,8 +34,7 @@ build() {
+     export ANT_OPTS="-Dfile.encoding=UTF-8"
+     export JAVA_HOME="${JAVA_HOME:-/usr/lib/jvm/default}"
  
- prepare() {
-     cd "${srcdir}/wrapper_${pkgver}_src"
--    
--    _ver=$(java -version 2>&1 |awk -F '"' '/version/{print $2}')
--    if [[ "$_ver" =~ ^1[0-2]\. ]]; then
--        _target=10
--        patch -Np0 -i "$srcdir/java10.patch"
--    else
--        _target=1.7
--    fi
-+
-+    _target=$(javac --version | awk -F' ' '{ sub(/\..*/, ""); print $2 }')
-+    patch -Np0 -i "$srcdir/java10.patch"
+-    [[ "$(java -version 2>&1 |awk -F '"' '/version/{print $2}')" =~ ^1[0-2]\. ]] &&
+-                                          _target=10  || _target=7
++    _target=$(echo $ver | cut -d . -f 1)
+     [[ "$CARCH" = @(x86_64|aarch64) ]] && _bits=64    || _bits=32
+     [[ "$CARCH" = arm*              ]] && _arch=armhf || _arch=x86
  
-     # Prevent building the testsuite on the x64, this requires the cunit pkg
-     # from the AUR, its a pain and useless to keep it a build-dep
