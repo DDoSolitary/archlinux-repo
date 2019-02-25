@@ -1,12 +1,12 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index 6b54935..e89d2ed 100644
+index 8b362cc..bc92c65 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -34,8 +34,7 @@ build() {
      export ANT_OPTS="-Dfile.encoding=UTF-8"
      export JAVA_HOME="${JAVA_HOME:-/usr/lib/jvm/default}"
  
--    [[ "$(java -version 2>&1 |awk -F '"' '/version/{print $2}')" =~ ^1[0-2]\. ]] &&
+-    [[ "$(javac -version 2>&1 |awk '{print $2}')" =~ ^1[0-2]\. ]] &&
 -                                          _target=10  || _target=7
 +    _target=$(echo $ver | cut -d . -f 1)
      [[ "$CARCH" = @(x86_64|aarch64) ]] && _bits=64    || _bits=32
