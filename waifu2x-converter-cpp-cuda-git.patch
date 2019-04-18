@@ -1,0 +1,24 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index 2b16255..598a557 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -10,7 +10,6 @@ pkgbase = waifu2x-converter-cpp-cuda-git
+ 	makedepends = cmake
+ 	makedepends = git
+ 	makedepends = opencl-headers
+-	makedepends = gcc7
+ 	depends = opencv
+ 	depends = cuda
+ 	provides = waifu2x-converter-cpp
+diff --git a/PKGBUILD b/PKGBUILD
+index ae85f17..3bf63a4 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -16,7 +16,6 @@ depends=('opencv'
+ makedepends=('cmake'
+              'git'
+              'opencl-headers'
+-             'gcc7'
+              )
+ provides=('waifu2x-converter-cpp')
+ conflicts=('waifu2x-converter-cpp')
