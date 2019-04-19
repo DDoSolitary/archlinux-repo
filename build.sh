@@ -7,7 +7,7 @@ cd ~/src
 sshfs -o allow_root \
 	ddosolitary@web.sourceforge.net:/home/project-web/archlinux-repo/htdocs/packages \
 	~/repo
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 # Download PKGBUILDs from AUR
 for i in $(cat aur-build-list); do
