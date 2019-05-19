@@ -1,26 +1,26 @@
 diff --git a/.SRCINFO b/.SRCINFO
-index 2b16255..572f9fc 100644
+index 767d7d1..4bc9f0f 100644
 --- a/.SRCINFO
 +++ b/.SRCINFO
-@@ -10,7 +10,7 @@ pkgbase = waifu2x-converter-cpp-cuda-git
+@@ -8,7 +8,7 @@ pkgbase = waifu2x-converter-cpp-cuda-git
  	makedepends = cmake
  	makedepends = git
  	makedepends = opencl-headers
--	makedepends = gcc7
-+	makedepends = ocl-icd
- 	depends = opencv
- 	depends = cuda
+-	depends = opencv-cuda
++	depends = opencv
+ 	depends = opencl-icd-loader
  	provides = waifu2x-converter-cpp
+ 	conflicts = waifu2x-converter-cpp
 diff --git a/PKGBUILD b/PKGBUILD
-index ae85f17..d552fce 100644
+index 4b287dc..eaf7f30 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -16,7 +16,7 @@ depends=('opencv'
+@@ -10,7 +10,7 @@ pkgdesc="Image Super-Resolution for Anime-Style-Art. (re-implementation in C++ u
+ arch=('x86_64')
+ url='https://github.com/DeadSix27/waifu2x-converter-cpp'
+ license=('MIT')
+-depends=('opencv-cuda'
++depends=('opencv'
+          'opencl-icd-loader'
+          )
  makedepends=('cmake'
-              'git'
-              'opencl-headers'
--             'gcc7'
-+             'ocl-icd'
-              )
- provides=('waifu2x-converter-cpp')
- conflicts=('waifu2x-converter-cpp')
