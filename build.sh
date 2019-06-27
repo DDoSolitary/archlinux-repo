@@ -60,6 +60,7 @@ for i in $pkglist; do
 	CARCH=x86_64 makepkg -sr --sign --needed --noconfirm
 	makepkg_err=$?
 	set -e
+	rm -rf src pkg
 	echo "$i $makepkg_err" >> "$tmp_res"
 	case $makepkg_err in
 	0)
