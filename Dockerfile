@@ -10,7 +10,7 @@ RUN ssh-keygen -A && \
 	echo [archlinux-ddosolitary] >> /etc/pacman.conf && \
 	echo Server = file:///home/builder/repo >> /etc/pacman.conf && \
 	echo SigLevel = Required >> /etc/pacman.conf && \
-	pacman-key -r $GPGKEY_ID && \
+	pacman-key --keyserver hkp://pgp.pm -r $GPGKEY_ID && \
 	pacman-key --init && \
 	pacman-key --lsign-key $GPGKEY_ID && \
 	useradd -m -p "" builder && \
@@ -19,5 +19,5 @@ USER builder
 RUN mkdir ~/.ssh ~/repo ~/src ~/build && \
 	ssh-keyscan web.sourceforge.net > ~/.ssh/known_hosts && \
 	chmod 600 ~/.ssh/known_hosts && \
-	gpg --recv-keys $GPGKEY_ID
+	gpg --keyserver hkp://pgp.pm --recv-keys $GPGKEY_ID
 CMD sudo /usr/bin/sshd -D -o PasswordAuthentication=yes -o PermitEmptyPasswords=yes
