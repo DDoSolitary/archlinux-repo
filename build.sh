@@ -21,7 +21,7 @@ curl -fsSL https://www.apache.org/dist/ant/KEYS | gpg --import
 for i in $(cat gpg-keyids); do
 	set +e
 	for j in $(seq 10); do
-		gpg --keyserver pgp.mit.edu --recv-keys "$i" \
+		gpg --keyserver keyserver.ubuntu.com --recv-keys "$i" \
 			|| gpg --keyserver pool.sks-keyservers.net --recv-keys "$i" \
 			&& break
 		if [ "$j" == "10" ]; then exit 1; fi
