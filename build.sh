@@ -18,6 +18,7 @@ done
 
 # Download public keys
 curl -fsSL https://www.apache.org/dist/ant/KEYS | gpg --import
+curl -fsSL https://openpgpkey.torproject.org/.well-known/openpgpkey/torproject.org/hu/kounek7zrdx745qydx6p59t9mqjpuhdf | gpg --import
 for i in $(cat gpg-keyids); do
 	set +e
 	for j in $(seq 10); do
