@@ -18,10 +18,6 @@ docker run -d \
 	--security-opt apparmor:unconfined \
 	ddosolitary/archlinux-builder
 
-if [ "$APPVEYOR_SSH_BLOCK" == "true" ]; then
-	curl -sflL https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh | bash -e
-fi
-
 gpg_socket=$(gpgconf --list-dirs | grep agent-socket | cut -d : -f 2)
 ssh -p 2200 \
 	-o UserKnownHostsFile=/dev/null \

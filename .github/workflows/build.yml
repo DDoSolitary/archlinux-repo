@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: 0 0 * * *
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      - env:
+          DEPLOYKEY: ${{ secrets.DEPLOYKEY }}
+          GPGKEY: ${{ secrets.GPGKEY }}
+          CI: true
+        run: ./run-docker.sh
