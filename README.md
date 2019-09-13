@@ -11,7 +11,7 @@ To use the pre-built packages, follow these steps:
 1. Trust my public key.
 
 ```
-pacman-key --kerserver hkps://keys.openpgp.org -r 688E1D093C3638F588890D4450268311C7AD3F62
+pacman-key --keyserver hkps://keys.openpgp.org -r 688E1D093C3638F588890D4450268311C7AD3F62
 pacman-key --lsign-key 688E1D093C3638F588890D4450268311C7AD3F62
 ```
 
