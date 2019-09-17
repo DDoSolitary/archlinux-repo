@@ -1,0 +1,11 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 9dc7c4f..ccf91d8 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -42,5 +42,5 @@ package()
+ 	local target_dir="${pkgdir}/usr/lib/thunderbird/extensions/${emid}"
+ 
+ 	install -d -m755 "$target_dir"
+-	cp -R build/dist/. "$target_dir"
++	cp -R build-tb/dist/. "$target_dir"
+ }
