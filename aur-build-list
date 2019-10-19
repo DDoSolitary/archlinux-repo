@@ -1,5 +1,6 @@
 acme.sh-git
 aic94xx-firmware
+android-apktool
 android-ndk
 antigen-git
 aria2-fast
@@ -13,8 +14,8 @@ firefox-nightly
 glib2-static
 hyper
 i2p
-i2pd
 i2p-dev
+i2pd
 i2pd-git
 java-service-wrapper
 lantern-bin
@@ -40,6 +41,7 @@ ruby-pusher-client
 ruby-travis
 ruby-typhoeus-0.6
 ruby-websocket
+scrcpy
 shadowsocksr-libev-git
 sstp-client
 telegram-cli-git
