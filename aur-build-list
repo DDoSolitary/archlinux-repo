@@ -20,13 +20,16 @@ i2pd
 i2pd-git
 java-service-wrapper
 lantern-bin
+libldac
 libtins
+megasync
 mkinitcpio-numlock
 netease-cloud-music
 nouveau-fw
 obfs4proxy
 package-query
 pcre-static
+pulseaudio-modules-bt-git
 qemu-user-static
 rslsync
 ruby-backports

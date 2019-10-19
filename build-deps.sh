@@ -9,4 +9,5 @@ deps=(
 	[i2p]="java-service-wrapper"
 	[i2p-dev]="java-service-wrapper"
 	[qemu-user-static]="glib2-static pcre-static"
+	[pulseaudio-modules-bt-git]="libldac"
 )
