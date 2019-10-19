@@ -1,0 +1,31 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index 37e0480..e571782 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -17,9 +17,7 @@ pkgbase = yubico-yubioath-desktop-git
+ 	depends = yubikey-manager>=3.1.0
+ 	depends = qt5-quickcontrols2
+ 	depends = qt5-declarative
+-	source = git+https://github.com/Yubico/yubioath-desktop.git?signed
+-	validpgpkeys = 8D0B4EBA9345254BCEC0E843514F078FF4AB24C3
+-	validpgpkeys = 57A9DEED4C6D962A923BB691816F3ED99921835E
++	source = git+https://github.com/Yubico/yubioath-desktop.git
+ 	sha256sums = SKIP
+ 
+ pkgname = yubico-yubioath-desktop-git
+diff --git a/PKGBUILD b/PKGBUILD
+index 376d21b..13a2367 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,10 +9,7 @@ url="https://developers.yubico.com/yubioath-desktop/"
+ license=('BSD')
+ depends=('pcsclite' 'ccid' 'python-pyotherside' 'yubikey-manager>=3.1.0' 'qt5-quickcontrols2' 'qt5-declarative')
+ makedepends=('swig' 'qt5-svg' 'libffi' 'openssl' 'qt5-base' 'git')
+-validpgpkeys=('8D0B4EBA9345254BCEC0E843514F078FF4AB24C3' # Dag Heyman <dag@yubico.com>
+-              '57A9DEED4C6D962A923BB691816F3ED99921835E' # Emil Lundberg <emil@yubico.com>
+-              )
+-source=("git+https://github.com/Yubico/yubioath-desktop.git?signed")
++source=("git+https://github.com/Yubico/yubioath-desktop.git")
+ sha256sums=('SKIP')
+ 
+ pkgver() {
