@@ -34,6 +34,7 @@ done
 # Resolve dependencies
 tmp1="$(mktemp)"
 tmp2="$(mktemp)"
+tmp3="$(mktemp)"
 source build-deps.sh
 for i in ${!deps[@]}; do
 	for j in ${deps["$i"]}; do
@@ -41,7 +42,8 @@ for i in ${!deps[@]}; do
 	done
 done
 cat "$tmp1" | tsort  > "$tmp2"
-pkglist="$(cat "$tmp2") $(cat "$tmp2" | sort | comm -3 - aur-build-list)"
+cat aur-build-list | sort > "$tmp3"
+pkglist="$(cat "$tmp2") $(cat "$tmp2" | sort | comm -3 - "$tmp3")"
 
 # Build packages
 build_err=0
