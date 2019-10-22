@@ -10,4 +10,6 @@ deps=(
 	[i2p-dev]="java-service-wrapper"
 	[qemu-user-static]="glib2-static pcre-static"
 	[pulseaudio-modules-bt-git]="libldac"
+	[intel-mkl]="intel-common-libs"
+	[libselinux]="libsepol"
 )

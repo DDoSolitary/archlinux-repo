@@ -19,9 +19,13 @@ i2p
 i2p-dev
 i2pd
 i2pd-git
+intel-common-libs
+intel-mkl
 java-service-wrapper
 lantern-bin
 libldac
+libselinux
+libsepol
 libtins
 megasync
 mkinitcpio-numlock
