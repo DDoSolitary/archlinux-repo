@@ -1,5 +1,5 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index f9f8a96..1fa7261 100644
+index 21ea9eb..adefced 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -26,15 +26,13 @@ _src="${_name}-${_version}.${_lang}.linux"
@@ -13,10 +13,10 @@ index f9f8a96..1fa7261 100644
                 "${_filename}-x86_64.txt"::"${_url}/${_src}-x86_64.txt")
  sha512sums=('42426e7b510bd88cbf7b246bf66d7768afa5d71389bf15f7a4231dc24f99fd73284dd9a0a8eb4342b42337c2c7dd843e570a93afa7d3b44c97ecbf5e38e433ac'
              '5ed67bde39175d4d10d50ba5b12063961e725e94948eadb354c0588b30d3f97d2178b66c1af466a6e7bd208ab694227a1391c4141f88d3da1a1178454eba5308')
--sha512sums_i686=('SKIP' 'SKIP' 'SKIP')
--sha512sums_x86_64=('SKIP' 'SKIP' 'SKIP')
-+sha512sums_i686=('SKIP' 'SKIP')
-+sha512sums_x86_64=('SKIP' 'SKIP')
- validpgpkeys=('14F26682D0916CDD81E37B6D61B7B526D98F0353') # Mozilla’s GnuPG release key
+-sha512sums_i686=(SKIP SKIP SKIP)
+-sha512sums_x86_64=(SKIP SKIP SKIP)
++sha512sums_i686=(SKIP SKIP)
++sha512sums_x86_64=(SKIP SKIP)
+ validpgpkeys=(14F26682D0916CDD81E37B6D61B7B526D98F0353) # Mozilla’s GnuPG release key
  
  pkgver() {
