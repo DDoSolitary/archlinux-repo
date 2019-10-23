@@ -19,7 +19,7 @@ i2p
 i2p-dev
 i2pd
 i2pd-git
-intel-parallel-studio-xe
+intel-mkl-slim
 java-service-wrapper
 lantern-bin
 libldac
