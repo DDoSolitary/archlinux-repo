@@ -10,7 +10,6 @@ binfmt-support
 fakeroot-tcp
 firefox-beta-bin
 firefox-developer
-firefox-nightly
 genymotion
 glib2-static
 go-tun2socks
@@ -57,7 +56,6 @@ telegram-cli-git
 telegram-desktop-bin-dev
 thunderbird-beta-bin
 thunderbird-extension-enigmail-git
-thunderbird-nightly
 tmate
 tor-browser-en
 ttf-hack-powerline-git
