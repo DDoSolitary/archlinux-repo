@@ -54,6 +54,7 @@ ruby-websocket
 scrcpy
 shadowsocksr-libev-git
 sstp-client
+systemd-docker
 telegram-cli-git
 telegram-desktop-bin-dev
 thunderbird-beta-bin
