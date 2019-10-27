@@ -6,7 +6,7 @@ index dc87b53..762bf63 100644
  }
  
  check() {
-+  dbus-uuidgen --ensure
++  sudo dbus-uuidgen --ensure
    # meson test -C build
    meson test -C _build --no-suite flaky --timeout-multiplier 2 --print-errorlogs
  }
