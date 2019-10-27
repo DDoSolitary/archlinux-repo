@@ -38,6 +38,7 @@ nouveau-fw
 obfs4proxy
 package-query
 pcre-static
+powershell
 pulseaudio-modules-bt-git
 qemu-user-static
 rslsync
