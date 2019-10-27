@@ -39,6 +39,7 @@ obfs4proxy
 package-query
 pcre-static
 powershell
+powershell-bin
 pulseaudio-modules-bt-git
 qemu-user-static
 rslsync
