@@ -11,4 +11,5 @@ deps=(
 	[qemu-user-static]="glib2-static pcre-static"
 	[pulseaudio-modules-bt-git]="libldac"
 	[libselinux]="libsepol"
+	[blueproximity]="bluez-utils-compat"
 )

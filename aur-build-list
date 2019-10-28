@@ -8,6 +8,7 @@ baidunetdisk
 binfmt-qemu-static
 binfmt-support
 blueproximity
+bluez-utils-compat
 fakeroot-tcp
 firefox-beta-bin
 firefox-developer
