@@ -12,4 +12,5 @@ deps=(
 	[pulseaudio-modules-bt-git]="libldac"
 	[libselinux]="libsepol"
 	[blueproximity]="bluez-utils-compat"
+	[vmware-workstation]="vmware-keymaps uefitool-git"
 )

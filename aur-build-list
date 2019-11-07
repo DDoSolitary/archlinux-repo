@@ -9,6 +9,7 @@ binfmt-qemu-static
 binfmt-support
 blueproximity
 bluez-utils-compat
+clion
 fakeroot-tcp
 firefox-beta-bin
 firefox-developer
@@ -25,6 +26,7 @@ i2p-dev
 i2pd
 i2pd-git
 intel-mkl-slim
+intellij-idea-ultimate-edition
 java-service-wrapper
 konsole-snazzy-git
 konsole-tomorrow-theme-git
@@ -76,6 +78,7 @@ vdhcoapp
 vim-dein-git
 virtualbox-ext-oracle
 vmware-keymaps
+vmware-workstation
 waifu2x-converter-cpp
 waifu2x-converter-cpp-cuda-git
 waifu2x-converter-cpp-git
