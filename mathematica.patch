@@ -1,0 +1,25 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 7f1b838..ef5da09 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -81,7 +81,7 @@ optdepends=(
+     'tesseract'
+     'zlib'
+ )
+-source=("local://Mathematica_${pkgver}_LINUX.sh")
++source=("http://mathematica.cs.southern.edu/software/Mathematica_${pkgver}_LINUX.sh")
+ md5sums=('f3ca61be780242cd16d3e313a800a287')
+ options=("!strip")
+ 
+@@ -92,11 +92,6 @@ options=("!strip")
+ ## The documentation takes up the majority of the disk space.  If you do not wish
+ ## to keep it, uncomment the relevant lines at the bottom of this PKGBUILD.
+ 
+-## The final package can be very large (especially if documentation is kept) and
+-## compression can be quite slow.  In most cases, the package is installed
+-## straight away and the package need not be kept, so compression is disabled.
+-PKGEXT='.pkg.tar'
+-
+ prepare() {
+     warning "Building Mathematica takes more than 18GiB of space for `makepkg`, and another 9GiB for the pkg tarball."
+     warning "Building in a tmpfs (e.g. /tmp when mounted into RAM) may not work."
