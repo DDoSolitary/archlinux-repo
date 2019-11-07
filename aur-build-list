@@ -13,6 +13,7 @@ clion
 fakeroot-tcp
 firefox-beta-bin
 firefox-developer
+gdm-plymouth
 genymotion
 glib2-static
 go-tun2socks
@@ -45,6 +46,8 @@ nouveau-fw
 obfs4proxy
 package-query
 pcre-static
+plymouth
+plymouth-zfs
 powershell
 powershell-bin
 pulseaudio-modules-bt-git
@@ -75,6 +78,7 @@ tmate
 tor-browser-en
 ttf-hack-powerline-git
 uefitool-git
+uvesafb-dkms
 vdhcoapp
 vim-dein-git
 virtualbox-ext-oracle

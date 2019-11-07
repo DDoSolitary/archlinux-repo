@@ -13,4 +13,6 @@ deps=(
 	[libselinux]="libsepol"
 	[blueproximity]="bluez-utils-compat"
 	[vmware-workstation]="vmware-keymaps uefitool-git"
+	[gdm-plymouth]="plymouth"
+	[plymouth-zfs]="plymouth"
 )
