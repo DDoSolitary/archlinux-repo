@@ -1,0 +1,15 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 0778ed1..b633296 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -71,7 +71,7 @@ package() {
+     mv "$i" "$i"32
+   done
+ 
+-  rm -rf "${pkgdir}"/usr/{include,share}
++  rm -rf "${pkgdir}"/usr/{include,share,lib/cmake}
+ }
+ 
+-# vim: ts=2 sw=2 et:
+\ No newline at end of file
++# vim: ts=2 sw=2 et:
