@@ -7,6 +7,8 @@ RUN ssh-keygen -A && \
 	echo PKGDEST=/home/builder/repo >> /etc/makepkg.conf && \
 	echo 'PACKAGER="DDoSolitary <DDoSolitary@gmail.com>"' >> /etc/makepkg.conf && \
 	echo GPG_KEY=$GPGKEY_ID >> /etc/makepkg.conf && \
+	echo [multilib] >> /etc/pacman.conf && \
+	echo Include = /etc/pacman.d/mirrorlist >> /etc/pacman.conf && \
 	echo [archlinux-ddosolitary] >> /etc/pacman.conf && \
 	echo Server = file:///home/builder/repo >> /etc/pacman.conf && \
 	echo SigLevel = Required >> /etc/pacman.conf && \
