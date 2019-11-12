@@ -1,7 +1,38 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index 44d7da4..f45290d 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -8,7 +8,7 @@ pkgbase = thunderbird-extension-enigmail-git
+ 	license = GPL3
+ 	makedepends = git
+ 	makedepends = zip
+-	makedepends = python2
++	makedepends = python
+ 	makedepends = perl
+ 	depends = gnupg
+ 	depends = thunderbird
 diff --git a/PKGBUILD b/PKGBUILD
-index 9dc7c4f..ccf91d8 100644
+index 9dc7c4f..adf48d9 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
+@@ -14,7 +14,7 @@ arch=('any')
+ url="https://www.enigmail.net/"
+ license=('MPL' 'GPL3')
+ depends=('gnupg' 'thunderbird')
+-makedepends=('git' 'zip' 'python2' 'perl')
++makedepends=('git' 'zip' 'python' 'perl')
+ provides=('thunderbird-extension-enigmail' 'thunderbird-enigmail')
+ conflicts=('thunderbird-extension-enigmail' 'thunderbird-enigmail')
+ source=("enigmail-git::git+https://gitlab.com/enigmail/enigmail.git")
+@@ -29,7 +29,7 @@ pkgver()
+ build()
+ {
+ 	cd enigmail-git
+-	./configure PYTHON=/usr/bin/python2
++	./configure
+ 	make -j1 # fails with -j greater than 1
+ }
+ 
 @@ -42,5 +42,5 @@ package()
  	local target_dir="${pkgdir}/usr/lib/thunderbird/extensions/${emid}"
  
