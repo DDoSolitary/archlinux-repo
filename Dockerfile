@@ -9,6 +9,7 @@ RUN ssh-keygen -A && \
 	echo GPG_KEY=$GPGKEY_ID >> /etc/makepkg.conf && \
 	echo [multilib] >> /etc/pacman.conf && \
 	echo Include = /etc/pacman.d/mirrorlist >> /etc/pacman.conf && \
+	pacman -Sy --needed --noconfirm multilib-devel && \
 	echo [archlinux-ddosolitary] >> /etc/pacman.conf && \
 	echo Server = file:///home/builder/repo >> /etc/pacman.conf && \
 	echo SigLevel = Required >> /etc/pacman.conf && \
