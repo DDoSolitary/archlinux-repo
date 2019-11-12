@@ -1,0 +1,35 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index dc2412e..762dd73 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -9,6 +9,7 @@ pkgbase = lib32-lv2
+ 	makedepends = python2
+ 	makedepends = lib32-libsndfile
+ 	makedepends = lib32-gtk2
++	depends = lv2
+ 	optdepends = libsndfile: Example sampler
+ 	optdepends = gtk2: Example sampler
+ 	optdepends = python2: Scripts
+diff --git a/PKGBUILD b/PKGBUILD
+index 7956f57..ec51a14 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,6 +9,7 @@ pkgdesc="Successor to the LADSPA audio plug-in standard"
+ url="http://lv2plug.in/"
+ license=('LGPL' 'custom')
+ arch=('x86_64')
++depends=($_basename)
+ makedepends=('python2' 'lib32-libsndfile' 'lib32-gtk2')  #lib32-python should be more correct
+ optdepends=('libsndfile: Example sampler'
+             'gtk2: Example sampler'
+@@ -21,8 +22,8 @@ md5sums=('0b56285a77aac3c93b50c36203aa91ee')
+ 
+ build() {
+   cd "$srcdir/$_basename-$pkgver"
+-  export CC="$CC -m32"
+-  export CXX="$CXX -m32"
++  export CFLAGS='-m32'
++  export LDFLAGS='-m32'
+   export PKG_CONFIG_PATH='/usr/lib32/pkgconfig'
+ 
+   python2 waf configure --prefix=/usr --libdir=/usr/lib32

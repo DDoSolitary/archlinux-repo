@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index c159d13..8991a7e 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -32,7 +32,7 @@ prepare() {
+ 
+ build() {
+   export CFLAGS="-m32"
+-  export CXXFLAGS="-m32"
++  export CXXFLAGS="-m32 -I/usr/include/glslang"
+   export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
+ 
+   cd ${_pkgbasename}-${pkgver}

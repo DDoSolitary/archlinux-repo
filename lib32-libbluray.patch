@@ -1,0 +1,26 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index 0b7a50a..517dc90 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -7,7 +7,7 @@ pkgbase = lib32-libbluray
+ 	license = LGPL2.1
+ 	makedepends = gcc-multilib
+ 	makedepends = apache-ant
+-	makedepends = java-environment
++	makedepends = java-environment<=11
+ 	depends = libbluray
+ 	depends = lib32-fontconfig
+ 	depends = lib32-glibc
+diff --git a/PKGBUILD b/PKGBUILD
+index fb823e5..a9d71b5 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,7 +11,7 @@ arch=('x86_64')
+ url="http://www.videolan.org/developers/libbluray.html"
+ license=('LGPL2.1')
+ depends=("$_pkgbase" 'lib32-fontconfig' 'lib32-glibc' 'lib32-freetype2' 'lib32-libxml2')
+-makedepends=('gcc-multilib' 'apache-ant' 'java-environment')
++makedepends=('gcc-multilib' 'apache-ant' 'java-environment<=11')
+ optdepends=('java-runtime: BD-J library')
+ provides=('libbluray.so')
+ source=("ftp://ftp.videolan.org/pub/videolan/$_pkgbase/$pkgver/$_pkgbase-$pkgver.tar.bz2")

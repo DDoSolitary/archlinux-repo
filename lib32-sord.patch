@@ -1,0 +1,26 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index c89558d..50fe74e 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -7,7 +7,7 @@ pkgbase = lib32-sord
+ 	license = custom:ISC
+ 	makedepends = python2
+ 	depends = lib32-serd
+-	depends = pcre
++	depends = lib32-pcre
+ 	depends = sord
+ 	source = https://download.drobilla.net/sord-0.16.2.tar.bz2
+ 	source = https://download.drobilla.net/sord-0.16.2.tar.bz2.sig
+diff --git a/PKGBUILD b/PKGBUILD
+index c784453..534a587 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@ pkgdesc="A lightweight C library for storing RDF data in memory (32-bit)"
+ arch=('x86_64')
+ url="https://drobilla.net/software/sord/"
+ license=('custom:ISC')
+-depends=('lib32-serd' 'pcre' 'sord')
++depends=('lib32-serd' 'lib32-pcre' 'sord')
+ makedepends=('python2')
+ source=("https://download.drobilla.net/$_basename-$pkgver.tar.bz2"{,.sig})
+ sha512sums=('fe143c07ed18c15ffaf2461ca587df76e365a075f5d93f5eaa4c26196e0b1dd59d24d16e176de3664a2658377a2934083af5742c80884e8e7dd201dcaccb9698'

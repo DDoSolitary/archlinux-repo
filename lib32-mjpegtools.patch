@@ -1,0 +1,25 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index b0a7826..44aa7b7 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -12,6 +12,7 @@ pkgbase = lib32-mjpegtools
+ 	depends = lib32-sdl
+ 	depends = gcc-libs-multilib
+ 	depends = lib32-libdv
++	depends = mjpegtools
+ 	source = http://downloads.sourceforge.net/sourceforge/mjpeg/mjpegtools-2.1.0.tar.gz
+ 	source = v4l.patch
+ 	source = avoid_fno_pic.patch
+diff --git a/PKGBUILD b/PKGBUILD
+index 08c2caa..c2c4c97 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -10,7 +10,7 @@ pkgdesc="Set of tools that can do recording of videos and playback, simple cut-a
+ arch=('x86_64')
+ license=('GPL')
+ url="http://mjpeg.sourceforge.net/"
+-depends=('lib32-libjpeg' 'lib32-libpng' 'lib32-sdl' 'gcc-libs-multilib' 'lib32-libdv')
++depends=('lib32-libjpeg' 'lib32-libpng' 'lib32-sdl' 'gcc-libs-multilib' 'lib32-libdv' $_basename)
+ makedepends=('lib32-gtk2' 'lib32-v4l-utils')
+ source=(http://downloads.sourceforge.net/sourceforge/mjpeg/${_basename}-${pkgver}.tar.gz    v4l.patch    avoid_fno_pic.patch   )
+ md5sums=('57bf5dd78976ca9bac972a6511b236f3' 'SKIP' 'SKIP')
