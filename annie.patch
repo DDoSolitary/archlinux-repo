@@ -1,34 +1,29 @@
 diff --git a/.SRCINFO b/.SRCINFO
-index 53abef8..bae35a0 100644
+index 043bd46..124d81a 100644
 --- a/.SRCINFO
 +++ b/.SRCINFO
-@@ -7,11 +7,9 @@ pkgbase = annie
- 	arch = i686
+@@ -8,7 +8,7 @@ pkgbase = annie
  	license = MIT
+ 	makedepends = git
  	makedepends = dep
 -	depends = go-pie
 +	makedepends = go
-+	makedepends = git
  	depends = ffmpeg
--	conflicts = annie
--	options = !strip
--	options = !emptydirs
- 	source = annie::git+https://github.com/iawia002/annie#tag=0.9.6
- 	md5sums = SKIP
- 
+ 	conflicts = annie
+ 	options = !strip
 diff --git a/PKGBUILD b/PKGBUILD
-index 1b99742..9c2e3e6 100644
+index 230d215..92397a6 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -9,10 +9,8 @@ arch=('x86_64' 'i686')
  pkgdesc="A fast, simple and clean video downloader written in Go"
  url="https://github.com/iawia002/annie"
  license=("MIT")
--makedepends=('dep')
+-makedepends=('git' 'dep')
 -depends=('go-pie' 'ffmpeg')
 -conflicts=("annie")
 -options=('!strip' '!emptydirs')
-+makedepends=('dep' 'go' 'git')
++makedepends=('git' 'dep' 'go')
 +depends=('ffmpeg')
  source=("annie::git+https://github.com/iawia002/annie#tag=${pkgver}")
  
