@@ -1,0 +1,24 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index fdaf22b..37a8ff5 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -7,6 +7,7 @@ pkgbase = vlmcsd-git
+ 	arch = x86_64
+ 	arch = aarch64
+ 	license = unknown
++	makedepends = git
+ 	provides = vlmcsd
+ 	conflicts = vlmcsd-svn
+ 	source = vlmcsd::git+https://github.com/Wind4/vlmcsd.git
+diff --git a/PKGBUILD b/PKGBUILD
+index 2fb55c2..512141e 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,6 +7,7 @@ pkgdesc="KMS Emulator in C (for activating Microsoft products)"
+ arch=('i686' 'x86_64' 'aarch64')
+ url="https://forums.mydigitallife.info/threads/50234-Emulated-KMS-Servers-on-non-Windows-platforms"
+ license=('unknown')
++makedepends=('git')
+ provides=('vlmcsd')
+ conflicts=('vlmcsd-svn')
+ source=("$_pkgname::git+https://github.com/Wind4/vlmcsd.git"
