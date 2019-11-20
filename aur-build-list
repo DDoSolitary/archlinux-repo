@@ -168,6 +168,7 @@ scrcpy
 shadowsocksr-libev-git
 sstp-client
 systemd-docker
+systemd-numlockontty
 telegram-cli-git
 telegram-desktop-bin-dev
 thunderbird-beta-bin
