@@ -1,0 +1,49 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index 329afd9..8195f72 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -1,14 +1,14 @@
+ pkgbase = baidunetdisk
+ 	pkgdesc = Baidunetdisk Client, converted from .rpm package
+-	pkgver = 2.0.2
++	pkgver = 3.0.1.2
+ 	pkgrel = 1
+ 	url = http://pan.baidu.com/
+ 	arch = x86_64
+ 	license = custom
+ 	options = !strip
+-	source = https://issuecdn.baidupcs.com/issue/netdisk/LinuxGuanjia/2.0.2/baidunetdisk_linux_2.0.2.rpm
++	source = https://issuecdn.baidupcs.com/issue/netdisk/LinuxGuanjia/3.0.1/baidunetdisk_linux_3.0.1.2.rpm
+ 	source = https://pan.baidu.com/disk/duty/index.html
+-	md5sums = 4f6cd066474fbdd2fc65fcc94dab5342
++	md5sums = fc559278615e91f2d0618bbffd9ff820
+ 	md5sums = SKIP
+ 
+ pkgname = baidunetdisk
+diff --git a/PKGBUILD b/PKGBUILD
+index 312f2bc..d3fc985 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -1,6 +1,7 @@
+ # Maintainer: yaminogame <yaminogame at live dot com>
+ pkgname=baidunetdisk
+-pkgver=2.0.2
++_pkgver=3.0.1
++pkgver=$_pkgver.2
+ pkgrel=1
+ pkgdesc="Baidunetdisk Client, converted from .rpm package"
+ arch=("x86_64")
+@@ -11,11 +12,11 @@ depends=()
+ DLAGENTS=("https::/usr/bin/curl -A 'Mozilla' -fLC - --retry 3 --retry-delay 3 -o %o %u")
+ 
+ source=(
+-	"https://issuecdn.baidupcs.com/issue/netdisk/LinuxGuanjia/${pkgver}/${pkgname}_linux_${pkgver}.rpm"
++	"https://issuecdn.baidupcs.com/issue/netdisk/LinuxGuanjia/${_pkgver}/${pkgname}_linux_${pkgver}.rpm"
+ 	"https://pan.baidu.com/disk/duty/index.html"
+ )
+ 
+-md5sums=('4f6cd066474fbdd2fc65fcc94dab5342'
++md5sums=('fc559278615e91f2d0618bbffd9ff820'
+ 	 'SKIP')
+ 
+ options=('!strip')
