@@ -1,12 +1,12 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index dc87b53..762bf63 100644
+index 0a6df4b..464b78e 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -39,6 +39,7 @@ build() {
+@@ -26,6 +26,7 @@ build() {
  }
  
  check() {
 +  sudo dbus-uuidgen --ensure
-   # meson test -C build
    meson test -C _build --no-suite flaky --timeout-multiplier 2 --print-errorlogs
  }
+ 
