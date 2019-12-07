@@ -148,7 +148,9 @@ plymouth-theme-paw-arch
 plymouth-zfs
 powershell
 powershell-bin
+protondb-tags
 pulseaudio-modules-bt-git
+python-vdf
 qemu-user-static
 rslsync
 ruby-backports
@@ -167,6 +169,7 @@ ruby-websocket
 scrcpy
 shadowsocksr-libev-git
 sstp-client
+steam-fonts
 systemd-docker
 systemd-numlockontty
 telegram-cli-git
