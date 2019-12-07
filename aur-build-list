@@ -118,6 +118,7 @@ libsepol
 libtins
 mathematica
 megasync
+meson-cross-x86-linux-gnu
 mkinitcpio-numlock
 netease-cloud-music
 nginx-mod-fancyindex

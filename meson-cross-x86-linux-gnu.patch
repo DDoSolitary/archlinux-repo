@@ -1,0 +1,24 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index 59b66ee..8480690 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -5,6 +5,7 @@ pkgbase = meson-cross-x86-linux-gnu
+ 	url = https://github.com/Oxalin/meson-cross-x86-linux-gnu
+ 	arch = any
+ 	license = 
++	makedepends = git
+ 	depends = meson
+ 	source = git://github.com/Oxalin/meson-cross-x86-linux-gnu.git#tag=1.0.3
+ 	sha256sums = SKIP
+diff --git a/PKGBUILD b/PKGBUILD
+index 12e3f25..60a4de0 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,6 +7,7 @@ arch=('any')
+ url="https://github.com/Oxalin/meson-cross-x86-linux-gnu"
+ license=('')
+ depends=('meson')
++makedepends=('git')
+ source=("git://github.com/Oxalin/meson-cross-x86-linux-gnu.git#tag=${pkgver}")
+ sha256sums=("SKIP")
+ 
