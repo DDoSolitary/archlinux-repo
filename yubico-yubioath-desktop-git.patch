@@ -14,7 +14,7 @@ index 37e0480..e571782 100644
  
  pkgname = yubico-yubioath-desktop-git
 diff --git a/PKGBUILD b/PKGBUILD
-index 376d21b..13a2367 100644
+index 376d21b..20fb93e 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -9,10 +9,7 @@ url="https://developers.yubico.com/yubioath-desktop/"
@@ -29,3 +29,12 @@ index 376d21b..13a2367 100644
  sha256sums=('SKIP')
  
  pkgver() {
+@@ -33,7 +30,7 @@ package() {
+ 
+   make INSTALL_ROOT="${pkgdir}/" install
+   install -D -m0644 resources/yubioath-desktop.desktop "${pkgdir}/usr/share/applications/yubioath-desktop.desktop"
+-  install -D -m0644 resources/icons/yubioath.png "${pkgdir}/usr/share/pixmaps/yubioath.png"
++  install -D -m0644 resources/icons/com.yubico.yubioath.png "${pkgdir}/usr/share/pixmaps/com.yubico.yubioath.png"
+   install -D -m0644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
+ }
+ 
