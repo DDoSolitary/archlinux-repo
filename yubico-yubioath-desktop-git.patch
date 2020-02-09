@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index adf0eee..54ebbe0 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -33,7 +33,7 @@ package() {
+   cd "${_pkgname}"
+ 
+   make INSTALL_ROOT="${pkgdir}/" install
+-  install -D -m0644 resources/yubioath-desktop.desktop "${pkgdir}/usr/share/applications/yubioath-desktop.desktop"
++  install -D -m0644 resources/com.yubico.yubioath.desktop "${pkgdir}/usr/share/applications/com.yubico.yubioath.desktop"
+   install -D -m0644 resources/icons/com.yubico.yubioath.png "${pkgdir}/usr/share/pixmaps/com.yubico.yubioath.png"
+   install -D -m0644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
+ }
