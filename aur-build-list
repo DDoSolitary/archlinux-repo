@@ -157,6 +157,7 @@ rslsync
 ruby-backports
 ruby-connection_pool
 ruby-ethon
+ruby-faraday-0.17
 ruby-gh
 ruby-highline-1.6
 ruby-json
