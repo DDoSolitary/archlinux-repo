@@ -57,4 +57,5 @@ deps=(
 	[lib32-shaderc]="lib32-glslang lib32-spirv-tools"
 	[lib32-gst-plugins-ugly]="lib32-a52dec lib32-libcdio lib32-libdvdread lib32-libmpeg2 lib32-libsidplay lib32-opencore-amr lib32-x264"
 	[protondb-tags]="python-vdf"
+	[megasync]="libpdfium-nojs"
 )

@@ -115,6 +115,7 @@ lib32-xvidcore
 lib32-zbar
 lib32-zvbi
 libldac
+libpdfium-nojs
 libselinux
 libsepol
 libtins
