@@ -1,0 +1,26 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index df93bcc..0f8a835 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -1,7 +1,7 @@
+ pkgbase = lib32-libheif
+ 	pkgdesc = HEIF file format decoder and encoder (32-bit)
+ 	pkgver = 1.6.2
+-	pkgrel = 1
++	pkgrel = 2
+ 	url = https://github.com/strukturag/libheif
+ 	arch = x86_64
+ 	license = GPL3
+diff --git a/PKGBUILD b/PKGBUILD
+index 205d42b..e110515 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -3,7 +3,7 @@
+ _basename=libheif
+ pkgname=lib32-libheif
+ pkgver=1.6.2
+-pkgrel=1
++pkgrel=2
+ pkgdesc="HEIF file format decoder and encoder (32-bit)"
+ arch=(x86_64)
+ url="https://github.com/strukturag/libheif"
