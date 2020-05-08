@@ -1,11 +1,14 @@
 declare -xA deps
 deps=(
 	[yaourt]="package-query"
-	[ruby-travis]="ruby-backports ruby-gh ruby-highline ruby-launchy ruby-pusher-client ruby-typhoeus-0.6"
-	[ruby-gh]="ruby-backports ruby-net-http-persistent ruby-net-http-pipeline"
+	[ruby-travis]="ruby-backports ruby-gh ruby-highline ruby-launchy ruby-pusher-client ruby-typhoeus-0.6 ruby-pry"
+	[ruby-gh]="ruby-activesupport-5 ruby-net-http-persistent ruby-net-http-pipeline"
 	[ruby-net-http-persistent]="ruby-connection_pool"
 	[ruby-pusher-client]="ruby-websocket"
 	[ruby-typhoeus-0.6]="ruby-ethon"
+	[ruby-pry]="ruby-coderay ruby-method_source"
+	[ruby-activesupport-5]="ruby-tzinfo-1"
+	[ruby-tzinfo-1]="ruby-thread_safe"
 	[i2p]="java-service-wrapper"
 	[i2p-dev]="java-service-wrapper"
 	[qemu-user-static]="glib2-static pcre-static"
