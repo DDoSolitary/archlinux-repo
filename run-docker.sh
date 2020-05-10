@@ -13,9 +13,7 @@ modprobe fuse
 docker run -d \
 	-p 2200:22 \
 	-v "$PWD":/home/builder/src \
-	--cap-add SYS_ADMIN \
-	--device /dev/fuse \
-	--security-opt apparmor:unconfined \
+	--priviledged \
 	ddosolitary/archlinux-builder
 
 gpg_socket=$(gpgconf --list-dirs | grep agent-socket | cut -d : -f 2)
