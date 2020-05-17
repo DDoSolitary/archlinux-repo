@@ -107,6 +107,7 @@ lib32-spandsp
 lib32-spirv-tools
 lib32-sratom
 lib32-srt
+lib32-vmaf
 lib32-webrtc-audio-processing
 lib32-wildmidi
 lib32-x264
