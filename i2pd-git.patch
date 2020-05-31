@@ -1,0 +1,14 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index e5ed2d3..0e7db43 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -65,9 +65,6 @@ package(){
+   _dest="$pkgdir/${_share_dest}/doc/${pkgname%%-git}"
+   install -Dm644 $srcdir/${pkgname%%-git}/README.md "${_dest}/README.md"
+ 
+-  # remove src folder and LICENSE
+-  rm -r $pkgdir/usr/{src,LICENSE}
+-
+   #man
+   install -Dm644 $srcdir/${pkgname%%-git}/debian/${pkgname%%-git}.1 $pkgdir/${_share_dest}/man/man1/${pkgname%%-git}.1
+ 
