@@ -150,6 +150,7 @@ plymouth-theme-paw-arch
 plymouth-zfs
 powershell
 powershell-bin
+preloader-signed
 protondb-tags
 pulseaudio-modules-bt-git
 python-vdf
@@ -175,6 +176,7 @@ ruby-tzinfo-1
 ruby-websocket
 scrcpy
 shadowsocksr-libev-git
+shim-signed
 sstp-client
 steam-fonts
 systemd-docker
