@@ -153,7 +153,9 @@ powershell-bin
 preloader-signed
 protondb-tags
 pulseaudio-modules-bt-git
+pygtk
 python-vdf
+python2-configobj
 qemu-user-static
 rslsync
 ruby-activesupport-5
