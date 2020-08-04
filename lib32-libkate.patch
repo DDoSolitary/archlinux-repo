@@ -1,0 +1,32 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index 8758609..bc26608 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -7,10 +7,11 @@ pkgbase = lib32-libkate
+ 	license = BSD
+ 	makedepends = pkg-config
+ 	makedepends = git
++	makedepends = python2
+ 	depends = lib32-libogg
+ 	depends = lib32-libpng
+ 	depends = libkate
+-	source = libkate::git+git://git.xiph.org/users/oggk/kate.git#tag=kate-0.4.1
++	source = libkate::git+https://github.com/Distrotech/libkate#tag=kate-0.4.1
+ 	source = 0001-Fix-automake-warnings.patch
+ 	sha512sums = SKIP
+ 	sha512sums = 525d120cddd040441859f2783e6e566da631ba304074bfa40a34399879fc3053577e8e71ef804168aeef519fac62e205829b50a61d770cddd46f7dbfba660842
+diff --git a/PKGBUILD b/PKGBUILD
+index e21e6d9..fe76ccd 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -10,8 +10,8 @@ url="https://wiki.xiph.org/OggKate"
+ license=('BSD')
+ arch=('x86_64')
+ depends=('lib32-libogg' 'lib32-libpng' 'libkate')
+-makedepends=('pkg-config' 'git')
+-source=("$_basename::git+git://git.xiph.org/users/oggk/kate.git#tag=kate-${pkgver}"
++makedepends=('pkg-config' 'git' 'python2')
++source=("$_basename::git+https://github.com/Distrotech/libkate#tag=kate-${pkgver}"
+         0001-Fix-automake-warnings.patch)
+ sha512sums=('SKIP'
+             '525d120cddd040441859f2783e6e566da631ba304074bfa40a34399879fc3053577e8e71ef804168aeef519fac62e205829b50a61d770cddd46f7dbfba660842')
