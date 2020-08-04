@@ -10,7 +10,6 @@ binfmt-qemu-static
 birdtray
 blueproximity
 bluez-utils-compat
-clion
 dislocker
 dislocker-git
 fakeroot-tcp
@@ -30,8 +29,8 @@ i2p-dev
 i2pd
 i2pd-git
 intel-mkl-slim
-intellij-idea-ultimate-edition
 java-service-wrapper
+jetbrains-toolbox
 konsole-snazzy-git
 konsole-tomorrow-theme-git
 lantern-bin
