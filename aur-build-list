@@ -15,6 +15,7 @@ dislocker-git
 fakeroot-tcp
 firefox-beta-bin
 firefox-developer
+gconf
 gdm-plymouth
 genymotion
 glib2-static
