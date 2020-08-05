@@ -7,6 +7,8 @@ RUN ssh-keygen -A && \
 	echo PKGDEST=/home/builder/repo >> /etc/makepkg.conf && \
 	echo 'PACKAGER="DDoSolitary <DDoSolitary@gmail.com>"' >> /etc/makepkg.conf && \
 	echo GPG_KEY=$GPGKEY_ID >> /etc/makepkg.conf && \
+	echo 'COMPRESSZST=(zstd -c -T12 --ultra -20 -)' >> /etc/makepkg.conf && \
+	echo PKGEXT=.pkg.tar.zst >> /etc/makepkg.conf && \
 	echo [multilib] >> /etc/pacman.conf && \
 	echo Include = /etc/pacman.d/mirrorlist >> /etc/pacman.conf && \
 	pacman -Sy --needed --noconfirm multilib-devel && \
