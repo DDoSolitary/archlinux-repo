@@ -7,6 +7,7 @@ if [ "$CI" == "true" ]; then
 	chmod 600 ~/.ssh/id_ed25519
 	eval $(ssh-agent)
 	ssh-add ~/.ssh/id_ed25519
+	unset GPGKEY DEPLOYKEY
 fi
 
 modprobe fuse
