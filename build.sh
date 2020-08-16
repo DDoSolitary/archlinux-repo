@@ -51,7 +51,7 @@ build_err=0
 tmp_res="$(mktemp)"
 for i in $pkglist; do
 	pushd ~/build/"$i"
-	patch_path=~/src/"$i".patch
+	patch_path=~/src/patches/"$i".patch
 	if [ -f "$patch_path" ]; then
 		if ! patch -Np1 -i "$patch_path"; then
 			echo "$i patch failed" >> "$tmp_res"
