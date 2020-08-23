@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 70c9795..d13f87e 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -40,6 +40,7 @@ build() {
+     export CC='gcc -m32'
+     export CXX='g++ -m32'
+     export PKG_CONFIG_PATH='/usr/lib32/pkgconfig'
++    export CFLAGS="$(echo "$CFLAGS" | sed 's/ -fno-plt//')"
+ 
+     waf configure --prefix=/usr \
+                           --libdir=/usr/lib32 \
