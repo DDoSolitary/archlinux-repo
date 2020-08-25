@@ -126,6 +126,7 @@ mathematica
 megasync
 meson-cross-x86-linux-gnu
 mkinitcpio-numlock
+ncurses5-compat-libs
 netease-cloud-music
 nginx-mod-fancyindex
 nodejs-unblockneteasemusic
@@ -159,6 +160,7 @@ pygtk
 python-vdf
 python2-configobj
 qemu-user-static
+qt4
 rslsync
 ruby-activesupport-5
 ruby-backports
