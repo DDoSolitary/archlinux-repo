@@ -31,6 +31,7 @@ i2p-dev
 i2pd
 i2pd-git
 java-service-wrapper
+jbig2enc-git
 jetbrains-toolbox
 konsole-snazzy-git
 konsole-tomorrow-theme-git
@@ -132,6 +133,7 @@ nginx-mod-fancyindex
 nodejs-unblockneteasemusic
 nouveau-fw
 obfs4proxy
+ocrmypdf
 package-query
 pcre-static
 plymouth
@@ -157,6 +159,8 @@ preloader-signed
 protondb-tags
 pulseaudio-modules-bt-git
 pygtk
+python-coloredlogs
+python-humanfriendly
 python-vdf
 python2-configobj
 qemu-user-static

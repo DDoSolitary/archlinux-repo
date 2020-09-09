@@ -63,4 +63,6 @@ deps=(
 	[protondb-tags]="python-vdf"
 	[megasync]="libpdfium-nojs"
 	[hyper]="gconf"
+	[ocrmypdf]="python-coloredlogs"
+	[python-coloredlogs]="python-humanfriendly"
 )
