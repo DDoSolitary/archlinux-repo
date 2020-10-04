@@ -1,11 +1,10 @@
 declare -xA deps
 deps=(
 	[yaourt]="package-query"
-	[ruby-travis]="ruby-backports ruby-gh ruby-highline ruby-launchy ruby-pusher-client ruby-typhoeus-0.6 ruby-pry"
+	[ruby-travis]="ruby-backports ruby-gh ruby-highline ruby-json_pure ruby-launchy ruby-pry ruby-pusher-client"
 	[ruby-gh]="ruby-activesupport-5 ruby-net-http-persistent ruby-net-http-pipeline"
 	[ruby-net-http-persistent]="ruby-connection_pool"
 	[ruby-pusher-client]="ruby-websocket"
-	[ruby-typhoeus-0.6]="ruby-ethon"
 	[ruby-pry]="ruby-coderay ruby-method_source"
 	[ruby-activesupport-5]="ruby-tzinfo-1"
 	[ruby-tzinfo-1]="ruby-thread_safe"

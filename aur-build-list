@@ -170,9 +170,9 @@ ruby-activesupport-5
 ruby-backports
 ruby-coderay
 ruby-connection_pool
-ruby-ethon
 ruby-gh
 ruby-highline
+ruby-json_pure
 ruby-launchy
 ruby-method_source
 ruby-net-http-persistent
@@ -181,7 +181,6 @@ ruby-pry
 ruby-pusher-client
 ruby-thread_safe
 ruby-travis
-ruby-typhoeus-0.6
 ruby-tzinfo-1
 ruby-websocket
 scrcpy
