@@ -17,8 +17,6 @@ for i in $(cat aur-build-list); do
 done
 
 # Download public keys
-curl -fsSL https://www.apache.org/dist/ant/KEYS | gpg --import
-curl -fsSL https://openpgpkey.torproject.org/.well-known/openpgpkey/torproject.org/hu/kounek7zrdx745qydx6p59t9mqjpuhdf | gpg --import
 curl -fsSL https://github.com/web-flow.gpg | gpg --import
 for i in $(cat gpg-keyids); do
 	set +e
