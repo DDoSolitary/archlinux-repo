@@ -15,7 +15,7 @@ docker run -d \
 	-p 2200:22 \
 	-v "$PWD":/home/builder/src \
 	--privileged \
-	ddosolitary/archlinux-builder
+	quay.io/ddosolitary/archlinux-builder
 
 gpg_socket=$(gpgconf --list-dirs | grep agent-socket | cut -d : -f 2)
 ssh -p 2200 \
