@@ -3,6 +3,9 @@
 export LANG=en_US.UTF-8
 cd ~/src
 
+gpg --keyserver hkps://keys.openpgp.org --refresh-keys
+sudo pacman-key --keyserver hkps://keys.openpgp.org --refresh-keys DDoSolitary@gmail.com
+
 # Mount the web server's filesystem
 sshfs -o allow_root \
 	ddosolitary@web.sourceforge.net:/home/project-web/archlinux-repo/htdocs/packages \
