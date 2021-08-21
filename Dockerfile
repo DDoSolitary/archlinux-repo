@@ -1,14 +1,12 @@
-FROM archlinux/base
+FROM docker.io/archlinux:base-devel
 ARG GPGKEY_ID=688E1D093C3638F588890D4450268311C7AD3F62
-RUN pacman -Syu --needed --noconfirm base base-devel openssh sshfs
+RUN pacman -Syu --needed --noconfirm openssh sshfs
 RUN ssh-keygen -A && \
 	echo StreamLocalBindUnlink yes >> /etc/ssh/sshd_config && \
 	echo user_allow_other >> /etc/fuse.conf && \
 	echo PKGDEST=/home/builder/repo >> /etc/makepkg.conf && \
 	echo 'PACKAGER="DDoSolitary <DDoSolitary@gmail.com>"' >> /etc/makepkg.conf && \
 	echo GPG_KEY=$GPGKEY_ID >> /etc/makepkg.conf && \
-	echo 'COMPRESSZST=(zstd -c -T12 --ultra -20 -)' >> /etc/makepkg.conf && \
-	echo PKGEXT=.pkg.tar.zst >> /etc/makepkg.conf && \
 	echo [multilib] >> /etc/pacman.conf && \
 	echo Include = /etc/pacman.d/mirrorlist >> /etc/pacman.conf && \
 	pacman -Sy --needed --noconfirm multilib-devel && \
